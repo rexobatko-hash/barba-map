@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Картата на Барбата – BARBA MAP</title>
-  <meta name="description" content="Навигационна карта с дънен релеф за Черно и Средиземно море – Картата на Барбата. Специално за риболовци и морски вълци.">
+  <title>Картата на Барбата · BARBA MAP</title>
+  <meta name="description" content="Навигационна карта с дънен релеф за Черно и Средиземно море, Картата на Барбата. Специално за риболовци и морски вълци.">
   <style>
     :root {
       --bg: #020617;
@@ -170,8 +170,8 @@
     }
 
     .hero-title span {
-      color: var(--accent);
-      text-shadow: 0 0 20px rgba(56,189,248,0.7);
+      color: inherit;
+      text-shadow: none;
     }
 
     .hero-subtitle {
@@ -403,6 +403,7 @@
       display: block;
       width: 100%;
       height: auto;
+      cursor: zoom-in;
     }
 
     .shot-caption {
@@ -460,6 +461,28 @@
     }
 
     .hidden { display: none !important; }
+
+    /* Lightbox */
+    #lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+    }
+
+    #lightbox-overlay.visible {
+      display: flex;
+    }
+
+    #lightbox-overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 1rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+    }
 
     @media (max-width: 840px) {
       .hero-grid, .grid-2 {
@@ -532,7 +555,7 @@
               </h1>
               <p class="hero-subtitle">
                 Реалистичен дънен релеф, проверен в реални условия от рибари.
-                Картата е създадена специално за морски вълци, които искат да знаят къде наистина се „чупи“ дъното.
+                Картата е създадена специално за морски вълци, които искат да знаят къде наистина се чупи дъното.
               </p>
               <div class="hero-highlight">
                 ⚓ Всяка карта се изработва индивидуално за конкретния уред.
@@ -546,28 +569,28 @@
                 </a>
               </div>
               <p class="hero-note">
-                За <strong>Garmin</strong> картата се записва само на изпратен от теб уред – така се гарантира коректна работа и съвместимост.
+                За <strong>Garmin</strong> картата се записва само на изпратен от теб уред. Така се гарантира коректна работа и съвместимост.
               </p>
             </div>
 
             <div>
               <div class="hero-card">
                 <div class="hero-card-tag">🎣 За сериозни рибари и капитани</div>
-                <div class="hero-card-title">Какво получаваш с „Картата на Барбата“</div>
+                <div class="hero-card-title">Какво получаваш с Картата на Барбата</div>
                 <p class="hero-card-text">
-                  Фокус върху реален дънен релеф и полезни детайли за риболов, а не туристическа украса.
+                  Фокус върху реален дънен релеф и практични детайли за риболов, а не туристическа украса.
                 </p>
                 <ul class="hero-card-list">
                   <li>• Детайлен дънен релеф в работни рибарски зони</li>
-                  <li>• Оптимизирана за Lowrance / Simrad / B&amp;G и Garmin</li>
+                  <li>• Оптимизирана за Lowrance, Simrad, B&amp;G и Garmin</li>
                   <li>• Локален опит от човек, който реално лови там</li>
                 </ul>
 
                 <div class="hero-card-footer">
-                  <div style="margin-bottom: 0.4rem;">Цени (единичен уред):</div>
+                  <div style="margin-bottom: 0.4rem;">Цени за един уред:</div>
                   <ul class="price-list">
-                    <li>• България – <span class="price-accent">100 EUR</span></li>
-                    <li>• Европа – <span class="price-accent">115 EUR</span> (с включена доставка)</li>
+                    <li>• България: <span class="price-accent">100 EUR</span></li>
+                    <li>• Европа: <span class="price-accent">115 EUR</span> (с включена доставка)</li>
                   </ul>
                   <div style="margin-top: 0.5rem;">
                     <span class="pill">Персонализирана карта</span>
@@ -605,10 +628,10 @@
               <div class="card">
                 <h3>Средиземно море</h3>
                 <p>
-                  Постепенно разширяване на покритието за различни райони на Средиземно море, според интереса и заявките.
+                  Постепенно разширяване на покритието за различни райони на Средиземно море според интереса и заявките.
                 </p>
                 <p style="margin-top:0.4rem;">
-                  Ако имаш конкретен район, в който ловиш – пиши в контакт секцията, за да уточним възможностите.
+                  Ако имаш конкретен район, в който ловиш, пиши в контакт секцията, за да уточним възможностите.
                 </p>
               </div>
             </div>
@@ -621,13 +644,13 @@
         <div class="container">
           <h2 class="section-title">Поддържани уреди</h2>
           <p class="section-subtitle">
-            Картата се изработва индивидуално за всеки конкретен уред. Една карта = един уред.
+            Картата се изработва индивидуално за всеки конкретен уред. Една карта е за един уред.
           </p>
 
           <div class="grid-2">
             <div>
               <div class="card">
-                <h3>Lowrance / Simrad / B&amp;G</h3>
+                <h3>Lowrance, Simrad, B&amp;G</h3>
                 <p>
                   Пълна съвместимост с основните модели, използвани от морски риболовци.
                 </p>
@@ -638,7 +661,7 @@
                   </div>
                   <div>
                     <span class="pill-soft">Simrad</span><br/>
-                    NSS / NSE и др. (по модел)
+                    NSS, NSE и други модели
                   </div>
                   <div>
                     <span class="pill-soft">B&amp;G</span><br/>
@@ -650,14 +673,13 @@
 
             <div>
               <div class="card">
-                <h3>Garmin – специален ред</h3>
+                <h3>Garmin</h3>
                 <p>
-                  За Garmin картата се записва директно на уреда.
-                  Това гарантира коректна и безпроблемна работа.
+                  За Garmin картата се записва директно на уреда. Това гарантира коректна и безпроблемна работа.
                 </p>
                 <p class="warn">
                   За да се изработи карта за <strong>Garmin</strong>, уредът трябва да ми бъде изпратен.
-                  По този начин се избягват проблеми със съвместимост и заключване на картите.
+                  Така се избягват проблеми със съвместимост и заключване на картите.
                 </p>
               </div>
             </div>
@@ -668,28 +690,28 @@
       <!-- Галерия BG -->
       <section id="gallery-bg">
         <div class="container">
-          <h2 class="section-title">Примери от „Картата на Барбата“</h2>
+          <h2 class="section-title">Примери от Картата на Барбата</h2>
           <p class="section-subtitle">
-            Реални изгледи на дъното – така, както го виждаш на уреда.
+            Реални изгледи на дъното, така както го виждаш на уреда.
           </p>
 
           <div class="gallery-grid">
             <div class="shot">
-              <img src="relief.jpg" alt="Дънен релеф – пример 1">
+              <img src="relief.jpg" alt="Дънен релеф, пример 1">
               <div class="shot-caption">
-                Детайлен дънен релеф – ясно различими чупки и прагове.
+                Детайлен дънен релеф с ясно различими чупки и прагове.
               </div>
             </div>
 
             <div class="shot">
-              <img src="garmin.jpg" alt="Дънен релеф – пример 2">
+              <img src="garmin.jpg" alt="Дънен релеф, пример 2">
               <div class="shot-caption">
                 Реални контури и структури, проверени в риболовни излизания.
               </div>
             </div>
 
             <div class="shot">
-              <img src="nositel.jpg" alt="Официален носител на картата на Барбата">
+              <img src="nositel.jpg" alt="Официален носител на Картата на Барбата">
               <div class="shot-caption">
                 Само този носител гарантира коректна и безпроблемна работа на картата.
               </div>
@@ -701,7 +723,7 @@
       <!-- Видео BG -->
       <section id="video-bg">
         <div class="container">
-          <h2 class="section-title">Видео – как изглежда картата в реални условия</h2>
+          <h2 class="section-title">Видео, как изглежда картата в реални условия</h2>
           <p class="section-subtitle">
             Кратки видеа от реална работа на картата на вода.
           </p>
@@ -709,12 +731,12 @@
           <div class="video-grid">
             <div class="video-wrapper">
               <iframe src="https://www.youtube.com/embed/X0TroAmjgoo"
-                      title="Barba Map – видео 1"
+                      title="Barba Map video 1"
                       allowfullscreen></iframe>
             </div>
             <div class="video-wrapper">
               <iframe src="https://www.youtube.com/embed/A75YnVMCca0"
-                      title="Barba Map – видео 2"
+                      title="Barba Map video 2"
                       allowfullscreen></iframe>
             </div>
           </div>
@@ -740,7 +762,7 @@
             </div>
             <ul class="price-list">
               <li>• Модел и марка на уреда</li>
-              <li>• Район (Черно море / конкретен участък / Средиземно море)</li>
+              <li>• Район (Черно море, конкретен участък, Средиземно море)</li>
               <li>• Дали уредът е Garmin (за уточняване на изпращането)</li>
             </ul>
           </div>
@@ -750,8 +772,8 @@
 
     <footer>
       <div class="container">
-        <div>© <span class="year-span" id="year-bg"></span> Картата на Барбата – BARBA MAP</div>
-        <div>Всяка карта се изработва за конкретен уред. Една карта = един уред.</div>
+        <div>© <span class="year-span" id="year-bg"></span> Картата на Барбата · BARBA MAP</div>
+        <div>Всяка карта се изработва за конкретен уред. Една карта е за един уред.</div>
       </div>
     </footer>
   </div>
@@ -795,11 +817,11 @@
                 <span>NEW</span> Bottom relief navigation chart
               </div>
               <h1 class="hero-title">
-                BARBA's <span>Bottom Map</span><br />for the Black &amp; Mediterranean Sea
+                BARBA's <span>Bottom Map</span><br />for the Black and Mediterranean Sea
               </h1>
               <p class="hero-subtitle">
                 Realistic sea bottom relief, tested in real fishing conditions.
-                A chart made by a fisherman, for fishermen – to show where the bottom really breaks and holds fish.
+                A chart made by a fisherman for fishermen, to show where the bottom really breaks and holds fish.
               </p>
               <div class="hero-highlight">
                 ⚓ Each chart is built individually for one specific device.
@@ -823,19 +845,19 @@
                 <div class="hero-card-tag">🎣 For serious anglers and skippers</div>
                 <div class="hero-card-title">What you get with BARBA MAP</div>
                 <p class="hero-card-text">
-                  Focus on realistic bottom structures and useful fishing details – not tourist decoration.
+                  Focus on realistic bottom structures and useful fishing details, not tourist decoration.
                 </p>
                 <ul class="hero-card-list">
                   <li>• Detailed bottom relief in active fishing areas</li>
-                  <li>• Optimized for Lowrance / Simrad / B&amp;G and Garmin</li>
+                  <li>• Optimized for Lowrance, Simrad, B&amp;G and Garmin</li>
                   <li>• Local know-how from a fisherman who actually fishes there</li>
                 </ul>
 
                 <div class="hero-card-footer">
-                  <div style="margin-bottom: 0.4rem;">Prices (per device):</div>
+                  <div style="margin-bottom: 0.4rem;">Prices per device:</div>
                   <ul class="price-list">
-                    <li>• Bulgaria – <span class="price-accent">100 EUR</span></li>
-                    <li>• Europe – <span class="price-accent">115 EUR</span> (shipping included)</li>
+                    <li>• Bulgaria: <span class="price-accent">100 EUR</span></li>
+                    <li>• Europe: <span class="price-accent">115 EUR</span> (shipping included)</li>
                   </ul>
                   <div style="margin-top: 0.5rem;">
                     <span class="pill">Custom chart</span>
@@ -876,7 +898,7 @@
                   Gradual coverage expansion for different parts of the Mediterranean, based on interest and requests.
                 </p>
                 <p style="margin-top:0.4rem;">
-                  If you fish in a specific area, send a message in the contact section so we can check what’s possible.
+                  If you fish in a specific area, send a message in the contact section so we can check what is possible.
                 </p>
               </div>
             </div>
@@ -889,13 +911,13 @@
         <div class="container">
           <h2 class="section-title">Supported devices</h2>
           <p class="section-subtitle">
-            Each chart is built individually for a single unit. One chart = one device.
+            Each chart is built individually for a single unit. One chart means one device.
           </p>
 
           <div class="grid-2">
             <div>
               <div class="card">
-                <h3>Lowrance / Simrad / B&amp;G</h3>
+                <h3>Lowrance, Simrad, B&amp;G</h3>
                 <p>
                   Full compatibility with the main units used by sea anglers.
                 </p>
@@ -906,7 +928,7 @@
                   </div>
                   <div>
                     <span class="pill-soft">Simrad</span><br/>
-                    NSS / NSE and others (per model)
+                    NSS, NSE and other models
                   </div>
                   <div>
                     <span class="pill-soft">B&amp;G</span><br/>
@@ -918,10 +940,9 @@
 
             <div>
               <div class="card">
-                <h3>Garmin – special case</h3>
+                <h3>Garmin</h3>
                 <p>
-                  For Garmin the chart is written directly on the unit.
-                  This guarantees trouble-free performance.
+                  For Garmin the chart is written directly on the unit. This guarantees trouble-free performance.
                 </p>
                 <p class="warn">
                   To build a chart for <strong>Garmin</strong>, you must send in your unit.
@@ -943,16 +964,16 @@
 
           <div class="gallery-grid">
             <div class="shot">
-              <img src="relief.jpg" alt="Bottom relief – sample 1">
+              <img src="relief.jpg" alt="Bottom relief, sample 1">
               <div class="shot-caption">
-                Detailed bottom relief – clearly visible breaks and drops.
+                Detailed bottom relief with clearly visible breaks and drops.
               </div>
             </div>
 
             <div class="shot">
-              <img src="garmin.jpg" alt="Bottom relief – sample 2">
+              <img src="garmin.jpg" alt="Bottom relief, sample 2">
               <div class="shot-caption">
-                Real-life structures, verified on the water while fishing.
+                Real structures, verified on the water while fishing.
               </div>
             </div>
 
@@ -969,7 +990,7 @@
       <!-- Video EN -->
       <section id="video-en">
         <div class="container">
-          <h2 class="section-title">Video – see the chart in action</h2>
+          <h2 class="section-title">Video, see the chart in action</h2>
           <p class="section-subtitle">
             Short clips showing how BARBA MAP looks on the water.
           </p>
@@ -977,12 +998,12 @@
           <div class="video-grid">
             <div class="video-wrapper">
               <iframe src="https://www.youtube.com/embed/X0TroAmjgoo"
-                      title="Barba Map – video 1"
+                      title="Barba Map video 1"
                       allowfullscreen></iframe>
             </div>
             <div class="video-wrapper">
               <iframe src="https://www.youtube.com/embed/A75YnVMCca0"
-                      title="Barba Map – video 2"
+                      title="Barba Map video 2"
                       allowfullscreen></iframe>
             </div>
           </div>
@@ -992,7 +1013,7 @@
       <!-- Contact EN -->
       <section id="contact-en">
         <div class="container">
-          <h2 class="section-title">Contact & orders</h2>
+          <h2 class="section-title">Contact and orders</h2>
           <p class="section-subtitle">
             Tell me what unit you use and which area you fish.
           </p>
@@ -1008,8 +1029,8 @@
             </div>
             <ul class="price-list">
               <li>• Brand and model of your unit</li>
-              <li>• Area (Black Sea / specific stretch / Mediterranean)</li>
-              <li>• Whether it’s a Garmin unit (for shipping details)</li>
+              <li>• Area (Black Sea, specific stretch, Mediterranean)</li>
+              <li>• Whether it is a Garmin unit (for shipping details)</li>
             </ul>
           </div>
         </div>
@@ -1019,7 +1040,7 @@
     <footer>
       <div class="container">
         <div>© <span class="year-span" id="year-en"></span> BARBA MAP</div>
-        <div>Each chart is made for one specific device. One chart = one unit.</div>
+        <div>Each chart is made for one specific device. One chart means one unit.</div>
       </div>
     </footer>
   </div>
@@ -1063,11 +1084,11 @@
                 <span>ΝΕΟ</span> Ναυτιλιακός χάρτης ανάγλυφου βυθού
               </div>
               <h1 class="hero-title">
-                Ο χάρτης του <span>BARBA</span><br />για Μαύρη Θάλασσα &amp; Μεσόγειο
+                Ο χάρτης του <span>BARBA</span><br />για Μαύρη Θάλασσα και Μεσόγειο
               </h1>
               <p class="hero-subtitle">
                 Πραγματικό ανάγλυφο βυθού, δοκιμασμένο σε πραγματικές συνθήκες ψαρέματος.
-                Χάρτης φτιαγμένος από ψαρά για ψαράδες – για να βλέπεις πού πραγματικά «σπάει» ο βυθός.
+                Χάρτης φτιαγμένος από ψαρά για ψαράδες, ώστε να βλέπεις πού πραγματικά σπάει ο βυθός.
               </p>
               <div class="hero-highlight">
                 ⚓ Κάθε χάρτης κατασκευάζεται ξεχωριστά για μία συγκεκριμένη συσκευή.
@@ -1091,19 +1112,19 @@
                 <div class="hero-card-tag">🎣 Για σοβαρούς ψαράδες και καπετάνιους</div>
                 <div class="hero-card-title">Τι προσφέρει ο BARBA MAP</div>
                 <p class="hero-card-text">
-                  Εστίαση σε πραγματικές μορφές βυθού και χρήσιμες λεπτομέρειες για ψάρεμα – όχι τουριστικό περιτύλιγμα.
+                  Εστίαση σε πραγματικές μορφές βυθού και χρήσιμες λεπτομέρειες για ψάρεμα, όχι σε τουριστικό περιτύλιγμα.
                 </p>
                 <ul class="hero-card-list">
                   <li>• Αναλυτικό ανάγλυφο βυθού σε ενεργές ζώνες ψαρέματος</li>
-                  <li>• Βελτιστοποιημένος για Lowrance / Simrad / B&amp;G και Garmin</li>
+                  <li>• Βελτιστοποιημένος για Lowrance, Simrad, B&amp;G και Garmin</li>
                   <li>• Τοπική εμπειρία από άνθρωπο που ψαρεύει πραγματικά εκεί</li>
                 </ul>
 
                 <div class="hero-card-footer">
-                  <div style="margin-bottom: 0.4rem;">Τιμές (ανά συσκευή):</div>
+                  <div style="margin-bottom: 0.4rem;">Τιμές ανά συσκευή:</div>
                   <ul class="price-list">
-                    <li>• Βουλγαρία – <span class="price-accent">100 EUR</span></li>
-                    <li>• Ευρώπη – <span class="price-accent">115 EUR</span> (με μεταφορά)</li>
+                    <li>• Βουλγαρία: <span class="price-accent">100 EUR</span></li>
+                    <li>• Ευρώπη: <span class="price-accent">115 EUR</span> (με μεταφορά)</li>
                   </ul>
                   <div style="margin-top: 0.5rem;">
                     <span class="pill">Προσαρμοσμένος χάρτης</span>
@@ -1128,10 +1149,10 @@
               <div class="card">
                 <h3>Μαύρη Θάλασσα</h3>
                 <p>
-                  Αναλυτικό ανάγλυφο βυθού κατά μήκος της βουλγαρικής ακτής, με έμφαση σε διαδρομές και σημεία που δουλεύουν στο ψάρεμα.
+                  Αναλυτικό ανάγλυφο βυθού κατά μήκος της βουλγαρικής ακτής με έμφαση σε διαδρομές και σημεία που δουλεύουν στο ψάρεμα.
                 </p>
                 <ul class="price-list">
-                  <li>• Κόλποι, σπασίματα, κατώφλια</li>
+                  <li>• Κόλποι, σπασίματα και κατώφλια</li>
                   <li>• Περιοχές με δομή που κρατάει θηράματα</li>
                   <li>• Σχήματα βυθού επιβεβαιωμένα σε πραγματικές εξόδους</li>
                 </ul>
@@ -1157,13 +1178,13 @@
         <div class="container">
           <h2 class="section-title">Υποστηριζόμενες συσκευές</h2>
           <p class="section-subtitle">
-            Κάθε χάρτης φτιάχνεται ξεχωριστά για μία συσκευή. Ένας χάρτης = μία συσκευή.
+            Κάθε χάρτης φτιάχνεται ξεχωριστά για μία συσκευή. Ένας χάρτης αντιστοιχεί σε μία συσκευή.
           </p>
 
           <div class="grid-2">
             <div>
               <div class="card">
-                <h3>Lowrance / Simrad / B&amp;G</h3>
+                <h3>Lowrance, Simrad, B&amp;G</h3>
                 <p>
                   Πλήρης συμβατότητα με τις βασικές μονάδες που χρησιμοποιούν θαλασσινοί ψαράδες.
                 </p>
@@ -1174,7 +1195,7 @@
                   </div>
                   <div>
                     <span class="pill-soft">Simrad</span><br/>
-                    NSS / NSE και άλλες (ανά μοντέλο)
+                    NSS, NSE και άλλες μονάδες
                   </div>
                   <div>
                     <span class="pill-soft">B&amp;G</span><br/>
@@ -1186,10 +1207,9 @@
 
             <div>
               <div class="card">
-                <h3>Garmin – ειδική περίπτωση</h3>
+                <h3>Garmin</h3>
                 <p>
-                  Για Garmin ο χάρτης γράφεται απευθείας στη μονάδα.
-                  Έτσι εξασφαλίζεται ομαλή και σωστή λειτουργία.
+                  Για Garmin ο χάρτης γράφεται απευθείας στη μονάδα. Έτσι εξασφαλίζεται ομαλή και σωστή λειτουργία.
                 </p>
                 <p class="warn">
                   Για να δημιουργηθεί χάρτης για <strong>Garmin</strong>, πρέπει να σταλεί η συσκευή.
@@ -1206,19 +1226,19 @@
         <div class="container">
           <h2 class="section-title">Στιγμιότυπα από τον BARBA MAP</h2>
           <p class="section-subtitle">
-            Πραγματικές εικόνες του βυθού – όπως τον βλέπεις στην οθόνη.
+            Πραγματικές εικόνες του βυθού, όπως τον βλέπεις στην οθόνη.
           </p>
 
           <div class="gallery-grid">
             <div class="shot">
-              <img src="relief.jpg" alt="Ανάγλυφο βυθού – δείγμα 1">
+              <img src="relief.jpg" alt="Ανάγλυφο βυθού, δείγμα 1">
               <div class="shot-caption">
-                Αναλυτικό ανάγλυφο βυθού – καθαρά ορατά σπασίματα και κατώφλια.
+                Αναλυτικό ανάγλυφο βυθού με καθαρά ορατά σπασίματα και κατώφλια.
               </div>
             </div>
 
             <div class="shot">
-              <img src="garmin.jpg" alt="Ανάγλυφο βυθού – δείγμα 2">
+              <img src="garmin.jpg" alt="Ανάγλυφο βυθού, δείγμα 2">
               <div class="shot-caption">
                 Πραγματικές δομές βυθού, επιβεβαιωμένες σε εξόδους για ψάρεμα.
               </div>
@@ -1237,7 +1257,7 @@
       <!-- Video EL -->
       <section id="video-el">
         <div class="container">
-          <h2 class="section-title">Βίντεο – ο χάρτης σε πραγματική χρήση</h2>
+          <h2 class="section-title">Βίντεο, ο χάρτης σε πραγματική χρήση</h2>
           <p class="section-subtitle">
             Σύντομα βίντεο που δείχνουν πώς φαίνεται ο BARBA MAP στη θάλασσα.
           </p>
@@ -1245,12 +1265,12 @@
           <div class="video-grid">
             <div class="video-wrapper">
               <iframe src="https://www.youtube.com/embed/X0TroAmjgoo"
-                      title="Barba Map – video 1"
+                      title="Barba Map video 1"
                       allowfullscreen></iframe>
             </div>
             <div class="video-wrapper">
               <iframe src="https://www.youtube.com/embed/A75YnVMCca0"
-                      title="Barba Map – video 2"
+                      title="Barba Map video 2"
                       allowfullscreen></iframe>
             </div>
           </div>
@@ -1260,7 +1280,7 @@
       <!-- Contact EL -->
       <section id="contact-el">
         <div class="container">
-          <h2 class="section-title">Επικοινωνία & παραγγελίες</h2>
+          <h2 class="section-title">Επικοινωνία και παραγγελίες</h2>
           <p class="section-subtitle">
             Γράψε ποια συσκευή χρησιμοποιείς και σε ποια περιοχή ψαρεύεις.
           </p>
@@ -1276,7 +1296,7 @@
             </div>
             <ul class="price-list">
               <li>• Μάρκα και μοντέλο συσκευής</li>
-              <li>• Περιοχή (Μαύρη Θάλασσα / συγκεκριμένο τμήμα / Μεσόγειος)</li>
+              <li>• Περιοχή (Μαύρη Θάλασσα, συγκεκριμένο τμήμα, Μεσόγειος)</li>
               <li>• Αν πρόκειται για Garmin (για λεπτομέρειες αποστολής)</li>
             </ul>
           </div>
@@ -1287,7 +1307,7 @@
     <footer>
       <div class="container">
         <div>© <span class="year-span" id="year-el"></span> BARBA MAP</div>
-        <div>Κάθε χάρτης φτιάχνεται για μία συγκεκριμένη συσκευή. Ένας χάρτης = μία μονάδα.</div>
+        <div>Κάθε χάρτης φτιάχνεται για μία συγκεκριμένη συσκευή. Ένας χάρτης αντιστοιχεί σε μία μονάδα.</div>
       </div>
     </footer>
   </div>
@@ -1331,11 +1351,11 @@
                 <span>NOVITÀ</span> Carta nautica con rilievo del fondo
               </div>
               <h1 class="hero-title">
-                La mappa di <span>BARBA</span><br />per il Mar Nero &amp; Mediterraneo
+                La mappa di <span>BARBA</span><br />per il Mar Nero e il Mediterraneo
               </h1>
               <p class="hero-subtitle">
                 Rilievo realistico del fondale, testato in vere uscite di pesca.
-                Una carta fatta da un pescatore per i pescatori – per vedere dove il fondo cambia davvero e tiene il pesce.
+                Una carta fatta da un pescatore per i pescatori, per vedere dove il fondale cambia davvero e tiene il pesce.
               </p>
               <div class="hero-highlight">
                 ⚓ Ogni carta viene creata individualmente per un dispositivo specifico.
@@ -1359,19 +1379,19 @@
                 <div class="hero-card-tag">🎣 Per pescatori e skipper seri</div>
                 <div class="hero-card-title">Cosa offre BARBA MAP</div>
                 <p class="hero-card-text">
-                  Focus su strutture reali del fondale e dettagli utili per la pesca – non una decorazione turistica.
+                  Focus su strutture reali del fondale e dettagli utili per la pesca, non una decorazione turistica.
                 </p>
                 <ul class="hero-card-list">
                   <li>• Rilievo dettagliato del fondo nelle zone di pesca attive</li>
-                  <li>• Ottimizzata per Lowrance / Simrad / B&amp;G e Garmin</li>
+                  <li>• Ottimizzata per Lowrance, Simrad, B&amp;G e Garmin</li>
                   <li>• Conoscenza locale di chi pesca veramente lì</li>
                 </ul>
 
                 <div class="hero-card-footer">
-                  <div style="margin-bottom: 0.4rem;">Prezzi (per dispositivo):</div>
+                  <div style="margin-bottom: 0.4rem;">Prezzi per dispositivo:</div>
                   <ul class="price-list">
-                    <li>• Bulgaria – <span class="price-accent">100 EUR</span></li>
-                    <li>• Europa – <span class="price-accent">115 EUR</span> (spedizione inclusa)</li>
+                    <li>• Bulgaria: <span class="price-accent">100 EUR</span></li>
+                    <li>• Europa: <span class="price-accent">115 EUR</span> (spedizione inclusa)</li>
                   </ul>
                   <div style="margin-top: 0.5rem;">
                     <span class="pill">Carta personalizzata</span>
@@ -1389,7 +1409,7 @@
         <div class="container">
           <h2 class="section-title">Copertura</h2>
           <p class="section-subtitle">
-            Focus principale su zone reali di pesca e di uscite in mare.
+            Focus principale su zone reali di pesca e uscite in mare.
           </p>
           <div class="grid-2">
             <div>
@@ -1399,7 +1419,7 @@
                   Rilievo dettagliato del fondale lungo la costa bulgara, con enfasi su rotte e spot di pesca che funzionano davvero.
                 </p>
                 <ul class="price-list">
-                  <li>• Baie, scalini, cambi di profondità</li>
+                  <li>• Baie, scalini e cambi di profondità</li>
                   <li>• Zone con strutture interessanti per i predatori</li>
                   <li>• Forme del fondale verificate in uscite di pesca reali</li>
                 </ul>
@@ -1425,13 +1445,13 @@
         <div class="container">
           <h2 class="section-title">Dispositivi supportati</h2>
           <p class="section-subtitle">
-            Ogni carta viene realizzata individualmente per una sola unità. Una carta = un dispositivo.
+            Ogni carta viene realizzata individualmente per una sola unità. Una carta corrisponde a un dispositivo.
           </p>
 
           <div class="grid-2">
             <div>
               <div class="card">
-                <h3>Lowrance / Simrad / B&amp;G</h3>
+                <h3>Lowrance, Simrad, B&amp;G</h3>
                 <p>
                   Piena compatibilità con le principali unità usate dai pescatori in mare.
                 </p>
@@ -1442,7 +1462,7 @@
                   </div>
                   <div>
                     <span class="pill-soft">Simrad</span><br/>
-                    NSS / NSE e altre (a seconda del modello)
+                    NSS, NSE e altre unità
                   </div>
                   <div>
                     <span class="pill-soft">B&amp;G</span><br/>
@@ -1454,10 +1474,9 @@
 
             <div>
               <div class="card">
-                <h3>Garmin – caso speciale</h3>
+                <h3>Garmin</h3>
                 <p>
-                  Per Garmin la carta viene scritta direttamente sull’unità.
-                  Questo garantisce funzionamento stabile e senza problemi.
+                  Per Garmin la carta viene scritta direttamente sull’unità. Questo garantisce funzionamento stabile e senza problemi.
                 </p>
                 <p class="warn">
                   Per creare una carta per <strong>Garmin</strong> è necessario spedire l’unità.
@@ -1474,19 +1493,19 @@
         <div class="container">
           <h2 class="section-title">Screenshot della BARBA MAP</h2>
           <p class="section-subtitle">
-            Viste reali del fondale – esattamente come le vedi sullo schermo.
+            Viste reali del fondale, esattamente come le vedi sullo schermo.
           </p>
 
           <div class="gallery-grid">
             <div class="shot">
-              <img src="relief.jpg" alt="Rilievo del fondale – esempio 1">
+              <img src="relief.jpg" alt="Rilievo del fondale, esempio 1">
               <div class="shot-caption">
-                Rilievo dettagliato – rotture e scalini chiaramente visibili.
+                Rilievo dettagliato con rotture e scalini chiaramente visibili.
               </div>
             </div>
 
             <div class="shot">
-              <img src="garmin.jpg" alt="Rilievo del fondale – esempio 2">
+              <img src="garmin.jpg" alt="Rilievo del fondale, esempio 2">
               <div class="shot-caption">
                 Strutture reali del fondale, verificate durante uscite di pesca.
               </div>
@@ -1505,7 +1524,7 @@
       <!-- Video IT -->
       <section id="video-it">
         <div class="container">
-          <h2 class="section-title">Video – la carta in azione</h2>
+          <h2 class="section-title">Video, la carta in azione</h2>
           <p class="section-subtitle">
             Brevi clip che mostrano come appare BARBA MAP in mare.
           </p>
@@ -1513,12 +1532,12 @@
           <div class="video-grid">
             <div class="video-wrapper">
               <iframe src="https://www.youtube.com/embed/X0TroAmjgoo"
-                      title="Barba Map – video 1"
+                      title="Barba Map video 1"
                       allowfullscreen></iframe>
             </div>
             <div class="video-wrapper">
               <iframe src="https://www.youtube.com/embed/A75YnVMCca0"
-                      title="Barba Map – video 2"
+                      title="Barba Map video 2"
                       allowfullscreen></iframe>
             </div>
           </div>
@@ -1528,7 +1547,7 @@
       <!-- Contact IT -->
       <section id="contact-it">
         <div class="container">
-          <h2 class="section-title">Contatto & ordini</h2>
+          <h2 class="section-title">Contatto e ordini</h2>
           <p class="section-subtitle">
             Scrivimi che unità usi e in quale zona peschi.
           </p>
@@ -1540,11 +1559,11 @@
               🌍 Sito: <a href="https://barba-map.com" target="_blank" rel="noopener">barba-map.com</a>
             </div>
             <div class="contact-row" style="margin-top:0.4rem;">
-              Nella richiesta, indica:
+              Nella richiesta indica:
             </div>
             <ul class="price-list">
               <li>• Marca e modello dell’unità</li>
-              <li>• Zona (Mar Nero / tratto specifico / Mediterraneo)</li>
+              <li>• Zona (Mar Nero, tratto specifico, Mediterraneo)</li>
               <li>• Se si tratta di una unità Garmin (per i dettagli di spedizione)</li>
             </ul>
           </div>
@@ -1555,7 +1574,7 @@
     <footer>
       <div class="container">
         <div>© <span class="year-span" id="year-it"></span> BARBA MAP</div>
-        <div>Ogni carta è creata per un solo dispositivo. Una carta = un’unità.</div>
+        <div>Ogni carta è creata per un solo dispositivo. Una carta corrisponde a un’unità.</div>
       </div>
     </footer>
   </div>
@@ -1581,7 +1600,6 @@
       if (!pages[lang]) return;
       currentLang = lang;
 
-      // показваме само съответната "page"
       Object.keys(pages).forEach(key => {
         if (key === lang) {
           pages[key].classList.remove('hidden');
@@ -1590,7 +1608,6 @@
         }
       });
 
-      // активен бутон
       allLangButtons.forEach(btn => {
         if (btn.dataset.langTarget === lang) {
           btn.classList.add('active');
@@ -1599,16 +1616,13 @@
         }
       });
 
-      // html lang атрибут
       document.documentElement.lang = lang;
 
-      // запомняме избора
       try {
         localStorage.setItem('barba-map-lang', lang);
       } catch (e) {}
     }
 
-    // обработка на езиковите бутони
     allLangButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         const target = btn.dataset.langTarget;
@@ -1616,7 +1630,6 @@
       });
     });
 
-    // навигация по секциите – според текущия език
     function scrollToSection(sectionKey) {
       const id = sectionKey + '-' + currentLang;
       const el = document.getElementById(id);
@@ -1633,7 +1646,6 @@
       });
     });
 
-    // зареждаме последно избрания език
     (function initLanguage() {
       let saved = null;
       try {
@@ -1645,6 +1657,25 @@
         setLanguage('bg');
       }
     })();
+
+    // Lightbox за снимките
+    const lightboxOverlay = document.createElement('div');
+    lightboxOverlay.id = 'lightbox-overlay';
+    lightboxOverlay.innerHTML = '<img src="" alt="BARBA MAP preview">';
+    document.body.appendChild(lightboxOverlay);
+
+    const lightboxImg = lightboxOverlay.querySelector('img');
+
+    document.querySelectorAll('.shot img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxOverlay.classList.add('visible');
+      });
+    });
+
+    lightboxOverlay.addEventListener('click', () => {
+      lightboxOverlay.classList.remove('visible');
+    });
   </script>
 </body>
 </html>
