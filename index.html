@@ -1,347 +1,1650 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Картата на Барбата – дънен релеф за Черно и Средиземно море</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Картата на Барбата – BARBA MAP</title>
+  <meta name="description" content="Навигационна карта с дънен релеф за Черно и Средиземно море – Картата на Барбата. Специално за риболовци и морски вълци.">
+  <style>
+    :root {
+      --bg: #020617;
+      --accent: #0ea5e9;
+      --accent-soft: rgba(14,165,233,0.1);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1e293b;
+    }
 
-    <meta name="description" content="Картата на Барбата – навигационна карта с дънен релеф за Черно и Средиземно море. Всяка карта се изработва за конкретен уред за коректна и безпроблемна работа.">
-    <meta name="keywords" content="морска карта, дънен релеф, bathymetry, Черно море, Средиземно море, навигация, риболов, карта на дъното">
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <link rel="stylesheet" href="styles.css">
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 45%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(15,23,42,0.95), rgba(15,23,42,0.7), transparent);
+      border-bottom: 1px solid rgba(148,163,184,0.3);
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 0;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #e5e7eb 0, #bae6fd 14%, #0ea5e9 38%, #0369a1 70%, #020617 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #020617;
+      box-shadow: 0 0 30px rgba(56,189,248,0.4);
+    }
+
+    .logo-text-main {
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .logo-text-sub {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a[data-section] {
+      padding: 0.35rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: var(--muted);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .nav-links a[data-section]:hover {
+      border-color: rgba(148,163,184,0.5);
+      color: var(--text);
+      background: rgba(15,23,42,0.7);
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      overflow: hidden;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      padding: 0.25rem 0.6rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .lang-btn.active {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    main { flex: 1; }
+
+    .hero {
+      padding: 3.2rem 0 2.6rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.1fr);
+      gap: 2.8rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      background: rgba(15,23,42,0.86);
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-badge span {
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3.1vw, 3rem);
+      line-height: 1.12;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+      text-shadow: 0 0 20px rgba(56,189,248,0.7);
+    }
+
+    .hero-subtitle {
+      color: var(--muted);
+      font-size: 0.98rem;
+      max-width: 34rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.85);
+      border: 1px dashed rgba(148,163,184,0.7);
+      font-size: 0.82rem;
+      color: #e5e7eb;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .btn-primary, .btn-ghost {
+      border-radius: 999px;
+      padding: 0.6rem 1.15rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0ea5e9, #22c55e);
+      color: #0b1120;
+      font-weight: 600;
+      box-shadow: 0 10px 35px rgba(34,197,94,0.5);
+    }
+
+    .btn-primary:hover { opacity: 0.95; }
+
+    .btn-ghost {
+      border-color: rgba(148,163,184,0.7);
+      color: var(--muted);
+      background: rgba(15,23,42,0.85);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      max-width: 29rem;
+    }
+
+    .hero-card {
+      position: relative;
+      border-radius: 1.4rem;
+      background: radial-gradient(circle at 10% 0, rgba(56,189,248,0.35) 0, #020617 45%, #000 100%);
+      border: 1px solid rgba(148,163,184,0.4);
+      padding: 1.5rem;
+      box-shadow: 0 25px 70px rgba(15,23,42,0.9);
+      overflow: hidden;
+    }
+
+    .hero-card-tag {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-card-text {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-card-list {
+      margin: 0;
+      padding-left: 1.1rem;
+      font-size: 0.84rem;
+      color: var(--text);
+    }
+
+    .hero-card-list li { margin-bottom: 0.3rem; }
+
+    .hero-card-footer {
+      margin-top: 0.9rem;
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      border-top: 1px dashed rgba(148,163,184,0.6);
+      padding-top: 0.6rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.7);
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-right: 0.4rem;
+    }
+
+    section {
+      padding: 2.4rem 0;
+      border-top: 1px solid rgba(30,41,59,0.9);
+      background: radial-gradient(circle at top, rgba(15,23,42,0.35) 0, transparent 55%);
+    }
+
+    section:nth-of-type(even) {
+      background: radial-gradient(circle at top, rgba(15,23,42,0.55) 0, #020617 70%);
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.3rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .card {
+      border-radius: 1.1rem;
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.16) 0, #020617 45%);
+      padding: 1.2rem 1.4rem;
+      box-shadow: 0 18px 45px rgba(15,23,42,0.8);
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .price-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.4rem 0 0;
+      font-size: 0.9rem;
+    }
+
+    .price-list li { margin-bottom: 0.25rem; }
+
+    .price-accent {
+      color: #bbf7d0;
+      font-weight: 600;
+    }
+
+    .warn {
+      font-size: 0.84rem;
+      color: #fecaca;
+      background: rgba(127,29,29,0.4);
+      border-radius: 0.8rem;
+      padding: 0.6rem 0.8rem;
+      border: 1px solid rgba(248,113,113,0.7);
+      margin-top: 0.6rem;
+    }
+
+    .devices-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.9rem;
+      margin-top: 0.6rem;
+      font-size: 0.86rem;
+    }
+
+    .pill-soft {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.5);
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .shot {
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: #020617;
+      box-shadow: 0 18px 40px rgba(15,23,42,0.9);
+    }
+
+    .shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .shot-caption {
+      padding: 0.6rem 0.75rem 0.75rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .video-wrapper {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(148,163,184,0.5);
+      box-shadow: 0 18px 40px rgba(15,23,42,0.9);
+      background: #020617;
+    }
+
+    .video-wrapper iframe {
+      width: 100%;
+      height: 270px;
+      border: none;
+      display: block;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .contact-card {
+      border-radius: 1.1rem;
+      border: 1px solid rgba(148,163,184,0.5);
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.26) 0, #020617 45%);
+      padding: 1.1rem 1.4rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-row { margin-bottom: 0.3rem; }
+
+    footer {
+      border-top: 1px solid rgba(30,41,59,0.9);
+      background: #020617;
+      font-size: 0.78rem;
+      color: var(--muted);
+      padding: 0.8rem 0 1rem;
+    }
+
+    footer .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .hidden { display: none !important; }
+
+    @media (max-width: 840px) {
+      .hero-grid, .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero { padding-top: 2.4rem; }
+      .nav-links {
+        gap: 0.5rem;
+        font-size: 0.8rem;
+      }
+      .hero-card { margin-top: 0.5rem; }
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      .nav-links {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .hero-title { font-size: 1.8rem; }
+      .hero-grid { gap: 1.6rem; }
+    }
+  </style>
 </head>
-
 <body>
-
-<header class="site-header">
-    <div class="container header-content">
-        <div class="logo">
-            <span class="logo-main">КАРТАТА НА БАРБАТА</span>
-            <span class="logo-sub">Една карта – две морета</span>
-        </div>
-
-        <nav class="main-nav">
-            <a href="#home">Начало</a>
-            <a href="#about">Какво е</a>
-            <a href="#coverage">Покритие</a>
-            <a href="#devices">Устройства</a>
-            <a href="#gallery">Снимки</a>
-            <a href="#video">Видео</a>
-            <a href="#contact">Контакт</a>
+  <!-- BG PAGE -->
+  <div class="page lang-block" id="page-bg">
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <div class="logo-wrap">
+            <div class="logo-circle">B</div>
+            <div>
+              <div class="logo-text-main">BARBA MAP</div>
+              <div class="logo-text-sub">Kartata na Barbata</div>
+            </div>
+          </div>
+          <div class="nav-links">
+            <a data-section="coverage">Покритие</a>
+            <a data-section="devices">Уреди</a>
+            <a data-section="gallery">Снимки</a>
+            <a data-section="video">Видео</a>
+            <a data-section="contact">Контакт</a>
+            <div class="lang-switch">
+              <button class="lang-btn active" data-lang-target="bg">BG</button>
+              <button class="lang-btn" data-lang-target="en">EN</button>
+              <button class="lang-btn" data-lang-target="el">EL</button>
+              <button class="lang-btn" data-lang-target="it">IT</button>
+            </div>
+          </div>
         </nav>
-    </div>
-</header>
+      </div>
+    </header>
 
-<main>
-
-<!-- HERO – първа снимка: дънен релеф -->
-<section id="home" class="hero">
-    <div class="container hero-grid">
-        <div class="hero-text">
-            <h1>Една карта – дънен релеф за Черно и Средиземно море</h1>
-            <p>
-                „Картата на Барбата“ е интегрирана морска навигационна карта с детайлен дънен релеф
-                на Черно и Средиземно море. Реално тествана от рибар за рибари.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="#contact" class="btn-primary">Заяви карта</a>
-                <a href="#devices" class="btn-secondary">Поддържани уреди</a>
+    <main>
+      <!-- Hero BG -->
+      <section class="hero" id="hero-bg">
+        <div class="container">
+          <div class="hero-grid">
+            <div>
+              <div class="hero-badge">
+                <span>НОВО</span> Навигационна карта с дънен релеф
+              </div>
+              <h1 class="hero-title">
+                Картата на <span>Барбата</span><br />за Черно и Средиземно море
+              </h1>
+              <p class="hero-subtitle">
+                Реалистичен дънен релеф, проверен в реални условия от рибари.
+                Картата е създадена специално за морски вълци, които искат да знаят къде наистина се „чупи“ дъното.
+              </p>
+              <div class="hero-highlight">
+                ⚓ Всяка карта се изработва индивидуално за конкретния уред.
+              </div>
+              <div class="hero-cta">
+                <a class="btn-primary" data-section="contact">
+                  Заяви карта
+                </a>
+                <a class="btn-ghost" data-section="video">
+                  👉 Виж карта на живо
+                </a>
+              </div>
+              <p class="hero-note">
+                За <strong>Garmin</strong> картата се записва само на изпратен от теб уред – така се гарантира коректна работа и съвместимост.
+              </p>
             </div>
 
-            <div class="hero-tags">
-                <span>Черно море</span>
-                <span>Средиземно море</span>
-                <span>Дънен релеф</span>
-                <span>Морски риболов</span>
+            <div>
+              <div class="hero-card">
+                <div class="hero-card-tag">🎣 За сериозни рибари и капитани</div>
+                <div class="hero-card-title">Какво получаваш с „Картата на Барбата“</div>
+                <p class="hero-card-text">
+                  Фокус върху реален дънен релеф и полезни детайли за риболов, а не туристическа украса.
+                </p>
+                <ul class="hero-card-list">
+                  <li>• Детайлен дънен релеф в работни рибарски зони</li>
+                  <li>• Оптимизирана за Lowrance / Simrad / B&amp;G и Garmin</li>
+                  <li>• Локален опит от човек, който реално лови там</li>
+                </ul>
+
+                <div class="hero-card-footer">
+                  <div style="margin-bottom: 0.4rem;">Цени (единичен уред):</div>
+                  <ul class="price-list">
+                    <li>• България – <span class="price-accent">100 EUR</span></li>
+                    <li>• Европа – <span class="price-accent">115 EUR</span> (с включена доставка)</li>
+                  </ul>
+                  <div style="margin-top: 0.5rem;">
+                    <span class="pill">Персонализирана карта</span>
+                    <span class="pill">Сигурен носител</span>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>          
         </div>
+      </section>
 
-        <div class="hero-media">
-            <img src="relief.jpg"
-                 alt="Дънен релеф на Черно море – Картата на Барбата"
-                 class="hero-shot">
-        </div>
-    </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="section">
-    <div class="container two-cols">
-
-        <div>
-            <h2>Какво представлява картата</h2>
-            <p>
-                Това е единна навигационна карта, която комбинира дънен релеф, рифове, падове и структури,
-                оптимизирани за морски риболов в Черно и Средиземно море.
-            </p>
-            <p>
-                Картата показва реални особености на дъното – скатове, прагчета, плато и „чупки“, които
-                стандартните карти често пропускат.
-            </p>
-        </div>
-
-        <div>
-            <h3>Предимства</h3>
-            <ul class="icon-list">
-                <li>⚓ Детайлен морски релеф</li>
-                <li>🐟 Основни риболовни структури за джигинг и тролинг</li>
-                <li>🧭 Работи на водещи картографи (Lowrance, Simrad, Raymarine, Humminbird, Garmin)</li>
-                <li>🌙 Ясна картина и при нощен риболов</li>
-            </ul>
-        </div>
-
-    </div>
-</section>
-
-<!-- COVERAGE -->
-<section id="coverage" class="section section-alt">
-    <div class="container">
-
-        <h2>Покритие</h2>
-        <p class="section-intro">
-            Една карта, която покрива едновременно <strong>Черно</strong> и <strong>Средиземно море</strong>.
-        </p>
-
-        <div class="cards">
-
-            <article class="card">
+      <!-- Покритие BG -->
+      <section id="coverage-bg">
+        <div class="container">
+          <h2 class="section-title">Покритие</h2>
+          <p class="section-subtitle">
+            Основен фокус върху реално използвани рибарски и любителски зони.
+          </p>
+          <div class="grid-2">
+            <div>
+              <div class="card">
                 <h3>Черно море</h3>
-                <ul class="plain-list">
-                    <li>Подробен релеф по българското крайбрежие</li>
-                    <li>Рифове, падове, прагове и структури</li>
-                    <li>Оптимизирано за морски риболов</li>
+                <p>
+                  Детайлен дънен релеф по българското крайбрежие с акцент върху реални рибарски маршрути и работни точки.
+                </p>
+                <ul class="price-list">
+                  <li>• Заливи, чупки и прагове</li>
+                  <li>• Зони с интересен релеф за хищници</li>
+                  <li>• Практически проверени структури от реален риболов</li>
                 </ul>
-            </article>
-
-            <article class="card">
+              </div>
+            </div>
+            <div>
+              <div class="card">
                 <h3>Средиземно море</h3>
-                <ul class="plain-list">
-                    <li>Ключови риболовни зони</li>
-                    <li>Дълбочинен релеф</li>
-                    <li>Практична ориентация за лодка</li>
-                </ul>
-            </article>
-
-            <article class="card">
-                <h3>Единна карта</h3>
-                <ul class="plain-list">
-                    <li>Черно + Средиземно море</li>
-                    <li>Един файл, една карта</li>
-                    <li>Една цена</li>
-                </ul>
-            </article>
-
+                <p>
+                  Постепенно разширяване на покритието за различни райони на Средиземно море, според интереса и заявките.
+                </p>
+                <p style="margin-top:0.4rem;">
+                  Ако имаш конкретен район, в който ловиш – пиши в контакт секцията, за да уточним възможностите.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-    </div>
-</section>
+      <!-- Уреди BG -->
+      <section id="devices-bg">
+        <div class="container">
+          <h2 class="section-title">Поддържани уреди</h2>
+          <p class="section-subtitle">
+            Картата се изработва индивидуално за всеки конкретен уред. Една карта = един уред.
+          </p>
 
-<!-- DEVICES -->
-<section id="devices" class="section">
-    <div class="container">
-        <h2>Съвместими картографи и устройства</h2>
+          <div class="grid-2">
+            <div>
+              <div class="card">
+                <h3>Lowrance / Simrad / B&amp;G</h3>
+                <p>
+                  Пълна съвместимост с основните модели, използвани от морски риболовци.
+                </p>
+                <div class="devices-grid">
+                  <div>
+                    <span class="pill-soft">Lowrance</span><br/>
+                    HDS, Elite, Hook серия (по запитване)
+                  </div>
+                  <div>
+                    <span class="pill-soft">Simrad</span><br/>
+                    NSS / NSE и др. (по модел)
+                  </div>
+                  <div>
+                    <span class="pill-soft">B&amp;G</span><br/>
+                    Zeus и други навигационни уреди
+                  </div>
+                </div>
+              </div>
+            </div>
 
-        <p>
-            Всяка карта се изработва за <strong>конкретен уред</strong>, за да работи максимално стабилно и безопасно.
-        </p>
-        <p>
-            <strong>За Garmin</strong> уредът трябва да ми бъде изпратен, за да се подготви картата и да се тества на място.
-        </p>
-
-        <p>Картите работят на следните картографи:</p>
-
-        <h3>1. Lowrance</h3>
-        <ul class="plain-list">
-            <li>HDS PRO series; HDS LIVE series; HDS Carbon series; Elite Ti2 series; Elite FS series</li>
-            <li>HDS Gen3 series; Elite Ti series</li>
-            <li>HDS Gen2 Touch series</li>
-            <li>HDS Gen2 series</li>
-            <li>HDS Gen1 series</li>
-            <li>Elite 7 HDI; Elite 7/9 CHIRP</li>
-        </ul>
-
-        <h3>2. Humminbird</h3>
-        <ul class="plain-list">
-            <li>1199CI HD SI, 1199CI HD SI KVD, 1198c SI, 1197, 1159CI HD, 1159CI HD XD, 1159CI HD DI, 1158c,
-                1158c DI, 1157, 1155</li>
-            <li>999CI HD SI, 999CI HD SI KVD, 998c HD SI, 998c SI, 959CI HD, 959CI HD XD, 959CI HD DI,
-                958c HD, 958c HD DI, 958, 957, 955, 947, 937, 917</li>
-            <li>899CI HD SI, 899CI HD SI NAV, 899CXI HD SI, 898c HD SI, 859CI HD, 859CI HD XD, 859CI HD DI,
-                858c HD, 858c HD DI, 858</li>
-            <li>HELIX 10 SI GPS, DI GPS, SI GPS KVD, SONAR GPS</li>
-            <li>HELIX 7 SI GPS, SI GPS KVD, DI GPS, SONAR GPS, GPS, X GPS</li>
-            <li>HELIX 5 DI GPS, XD GPS, SONAR GPS, GPS, SI GPS, SI GPS KVD</li>
-            <li>987, 798ci HD SI, 798, 797, 788ci HD, 788ci HD DI, 788ci HD Combo CHO, 787, 767, 757, 755, 737</li>
-            <li>698CI HD SI, 698CI HD SI KVD, 688CI HD, 688CI HD DI, 688CI HD XD, 688CI HD DI KVD NAV</li>
-            <li>598ci HD SI, 597ci HD, 597ci HD DI, 597, 587ci HD, 587, 595c</li>
-        </ul>
-
-        <h3>3. Simrad</h3>
-        <ul class="plain-list">
-            <li>NSS evo3S; NSO evo3S; NSS evo3; NSO evo3; NSO evo2</li>
-            <li>GO 5/7/9/12 XSE; GO XSR; GO 7 XSE; GO</li>
-            <li>NSS evo2; NSO; NSE; NSS</li>
-            <li>Cruise</li>
-        </ul>
-
-        <h3>4. Raymarine</h3>
-        <ul class="plain-list">
-            <li>Axiom+ series; Axiom XL series; Axiom Pro series; Axiom 2 Pro series; Axiom series</li>
-            <li>e-series; c-series; a-series</li>
-            <li>gS-series; eS-series</li>
-            <li>Element S series; Element HV series</li>
-            <li>Dragonfly Pro; Dragonfly</li>
-        </ul>
-
-        <h3>5. Garmin</h3>
-        <ul class="plain-list">
-            <li>ECHOMAP UHD2 (5/7)</li>
-            <li>ECHOMAP ULTRA (10/12)</li>
-            <li>ECHOMAP UHD (7/9)</li>
-            <li>ECHOMAP UHD2 (6/7/9)</li>
-        </ul>
-
-        <p>
-            Ако имате друг модел – питайте, ще ви кажа дали става или не. Свържете се с мен за уточняване
-            на подробности и начин на плащане.
-        </p>
-
-        <p>
-            <strong>Цена за България (без доставка):</strong> 100&nbsp;EUR<br>
-            <strong>Цена за Европа (с включена доставка):</strong> 115&nbsp;EUR
-        </p>
-    </div>
-</section>
-
-<!-- GALLERY – трите твои снимки -->
-<section id="gallery" class="section section-alt">
-    <div class="container">
-        <h2>Снимки от реална работа на картата</h2>
-        <p class="section-intro">Няма рендъри и реклами – само истински екран от лодката и реалния носител.</p>
-
-        <div class="gallery-grid">
-
-            <!-- 1. Дънен релеф -->
-            <figure class="gallery-item">
-                <img src="relief.jpg"
-                     alt="Дънен релеф на Черно море – Lowrance / Elite">
-                <figcaption>Дънен релеф – плит и дълбок контур, реална Картата на Барбата.</figcaption>
-            </figure>
-
-            <!-- 2. Гармин Варна -->
-            <figure class="gallery-item">
-                <img src="garmin.jpg"
-                     alt="Варненски залив – Garmin с комбинирана карта">
-                <figcaption>Варна – комбинирана карта и дънен релеф на Garmin.</figcaption>
-            </figure>
-
-            <!-- 3. Носителят -->
-            <figure class="gallery-item">
-                <img src="nositel.jpg"
-                     alt="Оригинален носител на Картата на Барбата">
-                <figcaption>
-                    <strong>Само този носител гарантира коректна и безпроблемна работа на картата!</strong>
-                </figcaption>
-            </figure>
-
+            <div>
+              <div class="card">
+                <h3>Garmin – специален ред</h3>
+                <p>
+                  За Garmin картата се записва директно на уреда.
+                  Това гарантира коректна и безпроблемна работа.
+                </p>
+                <p class="warn">
+                  За да се изработи карта за <strong>Garmin</strong>, уредът трябва да ми бъде изпратен.
+                  По този начин се избягват проблеми със съвместимост и заключване на картите.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-    </div>
-</section>
+      <!-- Галерия BG -->
+      <section id="gallery-bg">
+        <div class="container">
+          <h2 class="section-title">Примери от „Картата на Барбата“</h2>
+          <p class="section-subtitle">
+            Реални изгледи на дъното – така, както го виждаш на уреда.
+          </p>
 
-<!-- VIDEO – двете YouTube видеа -->
-<section id="video" class="section">
-    <div class="container">
-        <h2>Видео</h2>
-        <p class="section-intro">
-            Кратки клипове, които показват как изглежда Картата на Барбата в реални условия на вода.
-        </p>
+          <div class="gallery-grid">
+            <div class="shot">
+              <img src="images/relief1.jpg" alt="Дънен релеф – пример 1">
+              <div class="shot-caption">
+                Детайлен дънен релеф – ясно различими чупки и прагове.
+              </div>
+            </div>
 
-        <div class="video-grid">
+            <div class="shot">
+              <img src="images/relief2.jpg" alt="Дънен релеф – пример 2">
+              <div class="shot-caption">
+                Реални контури и структури, проверени в риболовни излизания.
+              </div>
+            </div>
 
+            <div class="shot">
+              <img src="images/sdcard.jpg" alt="Официален носител на картата на Барбата">
+              <div class="shot-caption">
+                Само този носител гарантира коректна и безпроблемна работа на картата.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Видео BG -->
+      <section id="video-bg">
+        <div class="container">
+          <h2 class="section-title">Видео – как изглежда картата в реални условия</h2>
+          <p class="section-subtitle">
+            Кратки видеа от реална работа на картата на вода.
+          </p>
+
+          <div class="video-grid">
             <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/X0TroAmjgoo"
-                        title="Картата на Барбата – видео 1"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                </iframe>
+              <iframe src="https://www.youtube.com/embed/X0TroAmjgoo"
+                      title="Barba Map – видео 1"
+                      allowfullscreen></iframe>
             </div>
-
             <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/A75YnVMCca0"
-                        title="Картата на Барбата – видео 2"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                </iframe>
+              <iframe src="https://www.youtube.com/embed/A75YnVMCca0"
+                      title="Barba Map – видео 2"
+                      allowfullscreen></iframe>
             </div>
-
+          </div>
         </div>
-    </div>
-</section>
+      </section>
 
-<!-- CONTACT -->
-<section id="contact" class="section">
-    <div class="container two-cols">
-
-        <div>
-            <h2>Контакт</h2>
-            <p>За въпроси, проверка за вашия уред или заявка на карта:</p>
-
-            <div class="contact-buttons">
-                <a href="tel:+359895606234" class="btn-contact">📞 Обади се</a>
-                <a href="viber://chat?number=359895606234" class="btn-contact">📲 Viber</a>
-                <a href="https://wa.me/359895606234" target="_blank" class="btn-contact">💬 WhatsApp</a>
+      <!-- Контакт BG -->
+      <section id="contact-bg">
+        <div class="container">
+          <h2 class="section-title">Контакт и поръчка</h2>
+          <p class="section-subtitle">
+            Пиши какъв уред използваш и за кой район ти трябва картата.
+          </p>
+          <div class="contact-card">
+            <div class="contact-row">
+              📧 Имейл: <strong>info@barba-map.com</strong>
             </div>
-
-            <ul class="contact-list">
-                <li>📞 Телефон: +359 895 606 234</li>
-                <li>📲 Viber: +359 895 606 234</li>
-                <li>💬 WhatsApp: +359 895 606 234</li>
-                <li>✉ Email: <a href="mailto:proletsin@mail.bg">proletsin@mail.bg</a></li>
+            <div class="contact-row">
+              🌍 Сайт: <a href="https://barba-map.com" target="_blank" rel="noopener">barba-map.com</a>
+            </div>
+            <div class="contact-row" style="margin-top:0.4rem;">
+              При запитване, моля посочи:
+            </div>
+            <ul class="price-list">
+              <li>• Модел и марка на уреда</li>
+              <li>• Район (Черно море / конкретен участък / Средиземно море)</li>
+              <li>• Дали уредът е Garmin (за уточняване на изпращането)</li>
             </ul>
+          </div>
         </div>
+      </section>
+    </main>
 
-        <div>
-            <form class="contact-form"
-                  onsubmit="alert('Демо форма – за реално изпращане е нужен сървър.'); return false;">
-                <label>
-                    Име
-                    <input type="text" required>
-                </label>
-                <label>
-                    Имейл
-                    <input type="email" required>
-                </label>
-                <label>
-                    Устройство
-                    <input type="text" placeholder="пример: Lowrance HDS Live 9">
-                </label>
-                <label>
-                    Съобщение
-                    <textarea rows="4" required></textarea>
-                </label>
-                <button class="btn-primary">Изпрати</button>
-            </form>
+    <footer>
+      <div class="container">
+        <div>© <span class="year-span" id="year-bg"></span> Картата на Барбата – BARBA MAP</div>
+        <div>Всяка карта се изработва за конкретен уред. Една карта = един уред.</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- EN PAGE -->
+  <div class="page lang-block hidden" id="page-en">
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <div class="logo-wrap">
+            <div class="logo-circle">B</div>
+            <div>
+              <div class="logo-text-main">BARBA MAP</div>
+              <div class="logo-text-sub">The Fisherman's Map</div>
+            </div>
+          </div>
+          <div class="nav-links">
+            <a data-section="coverage">Coverage</a>
+            <a data-section="devices">Devices</a>
+            <a data-section="gallery">Screenshots</a>
+            <a data-section="video">Video</a>
+            <a data-section="contact">Contact</a>
+            <div class="lang-switch">
+              <button class="lang-btn" data-lang-target="bg">BG</button>
+              <button class="lang-btn active" data-lang-target="en">EN</button>
+              <button class="lang-btn" data-lang-target="el">EL</button>
+              <button class="lang-btn" data-lang-target="it">IT</button>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero EN -->
+      <section class="hero" id="hero-en">
+        <div class="container">
+          <div class="hero-grid">
+            <div>
+              <div class="hero-badge">
+                <span>NEW</span> Bottom relief navigation chart
+              </div>
+              <h1 class="hero-title">
+                BARBA's <span>Bottom Map</span><br />for the Black &amp; Mediterranean Sea
+              </h1>
+              <p class="hero-subtitle">
+                Realistic sea bottom relief, tested in real fishing conditions.
+                A chart made by a fisherman, for fishermen – to show where the bottom really breaks and holds fish.
+              </p>
+              <div class="hero-highlight">
+                ⚓ Each chart is built individually for one specific device.
+              </div>
+              <div class="hero-cta">
+                <a class="btn-primary" data-section="contact">
+                  Order a chart
+                </a>
+                <a class="btn-ghost" data-section="video">
+                  👉 See it in action
+                </a>
+              </div>
+              <p class="hero-note">
+                For <strong>Garmin</strong> the chart is written directly on your unit.
+                This guarantees proper operation and compatibility.
+              </p>
+            </div>
+
+            <div>
+              <div class="hero-card">
+                <div class="hero-card-tag">🎣 For serious anglers and skippers</div>
+                <div class="hero-card-title">What you get with BARBA MAP</div>
+                <p class="hero-card-text">
+                  Focus on realistic bottom structures and useful fishing details – not tourist decoration.
+                </p>
+                <ul class="hero-card-list">
+                  <li>• Detailed bottom relief in active fishing areas</li>
+                  <li>• Optimized for Lowrance / Simrad / B&amp;G and Garmin</li>
+                  <li>• Local know-how from a fisherman who actually fishes there</li>
+                </ul>
+
+                <div class="hero-card-footer">
+                  <div style="margin-bottom: 0.4rem;">Prices (per device):</div>
+                  <ul class="price-list">
+                    <li>• Bulgaria – <span class="price-accent">100 EUR</span></li>
+                    <li>• Europe – <span class="price-accent">115 EUR</span> (shipping included)</li>
+                  </ul>
+                  <div style="margin-top: 0.5rem;">
+                    <span class="pill">Custom chart</span>
+                    <span class="pill">Verified media</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>          
         </div>
+      </section>
 
-    </div>
-</section>
+      <!-- Coverage EN -->
+      <section id="coverage-en">
+        <div class="container">
+          <h2 class="section-title">Coverage</h2>
+          <p class="section-subtitle">
+            Main focus on real fishing and recreational areas actually used on the water.
+          </p>
+          <div class="grid-2">
+            <div>
+              <div class="card">
+                <h3>Black Sea</h3>
+                <p>
+                  Detailed bottom relief along the Bulgarian coast with emphasis on realistic fishing routes and working spots.
+                </p>
+                <ul class="price-list">
+                  <li>• Bays, edges, drops and steps</li>
+                  <li>• Areas with attractive structure for predators</li>
+                  <li>• Shapes and structures verified during real fishing trips</li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <div class="card">
+                <h3>Mediterranean Sea</h3>
+                <p>
+                  Gradual coverage expansion for different parts of the Mediterranean, based on interest and requests.
+                </p>
+                <p style="margin-top:0.4rem;">
+                  If you fish in a specific area, send a message in the contact section so we can check what’s possible.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-</main>
+      <!-- Devices EN -->
+      <section id="devices-en">
+        <div class="container">
+          <h2 class="section-title">Supported devices</h2>
+          <p class="section-subtitle">
+            Each chart is built individually for a single unit. One chart = one device.
+          </p>
 
-<footer class="site-footer">
-    <div class="container footer-content">
-        <span>© <span id="year"></span> Картата на Барбата</span>
-        <span class="footer-note">Една карта – две морета</span>
-    </div>
-</footer>
+          <div class="grid-2">
+            <div>
+              <div class="card">
+                <h3>Lowrance / Simrad / B&amp;G</h3>
+                <p>
+                  Full compatibility with the main units used by sea anglers.
+                </p>
+                <div class="devices-grid">
+                  <div>
+                    <span class="pill-soft">Lowrance</span><br/>
+                    HDS, Elite, Hook series (on request)
+                  </div>
+                  <div>
+                    <span class="pill-soft">Simrad</span><br/>
+                    NSS / NSE and others (per model)
+                  </div>
+                  <div>
+                    <span class="pill-soft">B&amp;G</span><br/>
+                    Zeus and other navigation units
+                  </div>
+                </div>
+              </div>
+            </div>
 
-<script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+            <div>
+              <div class="card">
+                <h3>Garmin – special case</h3>
+                <p>
+                  For Garmin the chart is written directly on the unit.
+                  This guarantees trouble-free performance.
+                </p>
+                <p class="warn">
+                  To build a chart for <strong>Garmin</strong>, you must send in your unit.
+                  This avoids compatibility issues and locked maps.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      <!-- Gallery EN -->
+      <section id="gallery-en">
+        <div class="container">
+          <h2 class="section-title">Screenshots</h2>
+          <p class="section-subtitle">
+            Real-world views of the bottom as you see it on the screen.
+          </p>
+
+          <div class="gallery-grid">
+            <div class="shot">
+              <img src="images/relief1.jpg" alt="Bottom relief – sample 1">
+              <div class="shot-caption">
+                Detailed bottom relief – clearly visible breaks and drops.
+              </div>
+            </div>
+
+            <div class="shot">
+              <img src="images/relief2.jpg" alt="Bottom relief – sample 2">
+              <div class="shot-caption">
+                Real-life structures, verified on the water while fishing.
+              </div>
+            </div>
+
+            <div class="shot">
+              <img src="images/sdcard.jpg" alt="Official BARBA MAP media">
+              <div class="shot-caption">
+                Only this media guarantees correct and trouble-free operation of the chart.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Video EN -->
+      <section id="video-en">
+        <div class="container">
+          <h2 class="section-title">Video – see the chart in action</h2>
+          <p class="section-subtitle">
+            Short clips showing how BARBA MAP looks on the water.
+          </p>
+
+          <div class="video-grid">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/X0TroAmjgoo"
+                      title="Barba Map – video 1"
+                      allowfullscreen></iframe>
+            </div>
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/A75YnVMCca0"
+                      title="Barba Map – video 2"
+                      allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact EN -->
+      <section id="contact-en">
+        <div class="container">
+          <h2 class="section-title">Contact & orders</h2>
+          <p class="section-subtitle">
+            Tell me what unit you use and which area you fish.
+          </p>
+          <div class="contact-card">
+            <div class="contact-row">
+              📧 Email: <strong>info@barba-map.com</strong>
+            </div>
+            <div class="contact-row">
+              🌍 Website: <a href="https://barba-map.com" target="_blank" rel="noopener">barba-map.com</a>
+            </div>
+            <div class="contact-row" style="margin-top:0.4rem;">
+              Please include:
+            </div>
+            <ul class="price-list">
+              <li>• Brand and model of your unit</li>
+              <li>• Area (Black Sea / specific stretch / Mediterranean)</li>
+              <li>• Whether it’s a Garmin unit (for shipping details)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div>© <span class="year-span" id="year-en"></span> BARBA MAP</div>
+        <div>Each chart is made for one specific device. One chart = one unit.</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- EL PAGE (Greek) -->
+  <div class="page lang-block hidden" id="page-el">
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <div class="logo-wrap">
+            <div class="logo-circle">B</div>
+            <div>
+              <div class="logo-text-main">BARBA MAP</div>
+              <div class="logo-text-sub">Χάρτης του ψαρά</div>
+            </div>
+          </div>
+          <div class="nav-links">
+            <a data-section="coverage">Κάλυψη</a>
+            <a data-section="devices">Συσκευές</a>
+            <a data-section="gallery">Στιγμιότυπα</a>
+            <a data-section="video">Βίντεο</a>
+            <a data-section="contact">Επικοινωνία</a>
+            <div class="lang-switch">
+              <button class="lang-btn" data-lang-target="bg">BG</button>
+              <button class="lang-btn" data-lang-target="en">EN</button>
+              <button class="lang-btn active" data-lang-target="el">EL</button>
+              <button class="lang-btn" data-lang-target="it">IT</button>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero EL -->
+      <section class="hero" id="hero-el">
+        <div class="container">
+          <div class="hero-grid">
+            <div>
+              <div class="hero-badge">
+                <span>ΝΕΟ</span> Ναυτιλιακός χάρτης ανάγλυφου βυθού
+              </div>
+              <h1 class="hero-title">
+                Ο χάρτης του <span>BARBA</span><br />για Μαύρη Θάλασσα &amp; Μεσόγειο
+              </h1>
+              <p class="hero-subtitle">
+                Πραγματικό ανάγλυφο βυθού, δοκιμασμένο σε πραγματικές συνθήκες ψαρέματος.
+                Χάρτης φτιαγμένος από ψαρά για ψαράδες – για να βλέπεις πού πραγματικά «σπάει» ο βυθός.
+              </p>
+              <div class="hero-highlight">
+                ⚓ Κάθε χάρτης κατασκευάζεται ξεχωριστά για μία συγκεκριμένη συσκευή.
+              </div>
+              <div class="hero-cta">
+                <a class="btn-primary" data-section="contact">
+                  Παραγγελία χάρτη
+                </a>
+                <a class="btn-ghost" data-section="video">
+                  👉 Δες τον σε δράση
+                </a>
+              </div>
+              <p class="hero-note">
+                Για <strong>Garmin</strong> ο χάρτης γράφεται απευθείας στη συσκευή σου.
+                Έτσι εξασφαλίζεται σωστή λειτουργία και συμβατότητα.
+              </p>
+            </div>
+
+            <div>
+              <div class="hero-card">
+                <div class="hero-card-tag">🎣 Για σοβαρούς ψαράδες και καπετάνιους</div>
+                <div class="hero-card-title">Τι προσφέρει ο BARBA MAP</div>
+                <p class="hero-card-text">
+                  Εστίαση σε πραγματικές μορφές βυθού και χρήσιμες λεπτομέρειες για ψάρεμα – όχι τουριστικό περιτύλιγμα.
+                </p>
+                <ul class="hero-card-list">
+                  <li>• Αναλυτικό ανάγλυφο βυθού σε ενεργές ζώνες ψαρέματος</li>
+                  <li>• Βελτιστοποιημένος για Lowrance / Simrad / B&amp;G και Garmin</li>
+                  <li>• Τοπική εμπειρία από άνθρωπο που ψαρεύει πραγματικά εκεί</li>
+                </ul>
+
+                <div class="hero-card-footer">
+                  <div style="margin-bottom: 0.4rem;">Τιμές (ανά συσκευή):</div>
+                  <ul class="price-list">
+                    <li>• Βουλγαρία – <span class="price-accent">100 EUR</span></li>
+                    <li>• Ευρώπη – <span class="price-accent">115 EUR</span> (με μεταφορά)</li>
+                  </ul>
+                  <div style="margin-top: 0.5rem;">
+                    <span class="pill">Προσαρμοσμένος χάρτης</span>
+                    <span class="pill">Ελεγμένο μέσο</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>          
+        </div>
+      </section>
+
+      <!-- Coverage EL -->
+      <section id="coverage-el">
+        <div class="container">
+          <h2 class="section-title">Κάλυψη</h2>
+          <p class="section-subtitle">
+            Εστίαση σε πραγματικές περιοχές ψαρέματος και θαλάσσιες βόλτες που χρησιμοποιούνται στην πράξη.
+          </p>
+          <div class="grid-2">
+            <div>
+              <div class="card">
+                <h3>Μαύρη Θάλασσα</h3>
+                <p>
+                  Αναλυτικό ανάγλυφο βυθού κατά μήκος της βουλγαρικής ακτής, με έμφαση σε διαδρομές και σημεία που δουλεύουν στο ψάρεμα.
+                </p>
+                <ul class="price-list">
+                  <li>• Κόλποι, σπασίματα, κατώφλια</li>
+                  <li>• Περιοχές με δομή που κρατάει θηράματα</li>
+                  <li>• Σχήματα βυθού επιβεβαιωμένα σε πραγματικές εξόδους</li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <div class="card">
+                <h3>Μεσόγειος</h3>
+                <p>
+                  Σταδιακή επέκταση κάλυψης σε διάφορες περιοχές της Μεσογείου, ανάλογα με το ενδιαφέρον και τα αιτήματα.
+                </p>
+                <p style="margin-top:0.4rem;">
+                  Αν ψαρεύεις σε συγκεκριμένη περιοχή, στείλε μήνυμα στην ενότητα επικοινωνίας για να δούμε τι είναι εφικτό.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Devices EL -->
+      <section id="devices-el">
+        <div class="container">
+          <h2 class="section-title">Υποστηριζόμενες συσκευές</h2>
+          <p class="section-subtitle">
+            Κάθε χάρτης φτιάχνεται ξεχωριστά για μία συσκευή. Ένας χάρτης = μία συσκευή.
+          </p>
+
+          <div class="grid-2">
+            <div>
+              <div class="card">
+                <h3>Lowrance / Simrad / B&amp;G</h3>
+                <p>
+                  Πλήρης συμβατότητα με τις βασικές μονάδες που χρησιμοποιούν θαλασσινοί ψαράδες.
+                </p>
+                <div class="devices-grid">
+                  <div>
+                    <span class="pill-soft">Lowrance</span><br/>
+                    Σειρές HDS, Elite, Hook (κατόπιν αιτήματος)
+                  </div>
+                  <div>
+                    <span class="pill-soft">Simrad</span><br/>
+                    NSS / NSE και άλλες (ανά μοντέλο)
+                  </div>
+                  <div>
+                    <span class="pill-soft">B&amp;G</span><br/>
+                    Zeus και άλλες ναυτιλιακές μονάδες
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="card">
+                <h3>Garmin – ειδική περίπτωση</h3>
+                <p>
+                  Για Garmin ο χάρτης γράφεται απευθείας στη μονάδα.
+                  Έτσι εξασφαλίζεται ομαλή και σωστή λειτουργία.
+                </p>
+                <p class="warn">
+                  Για να δημιουργηθεί χάρτης για <strong>Garmin</strong>, πρέπει να σταλεί η συσκευή.
+                  Έτσι αποφεύγονται προβλήματα συμβατότητας και κλειδωμένοι χάρτες.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery EL -->
+      <section id="gallery-el">
+        <div class="container">
+          <h2 class="section-title">Στιγμιότυπα από τον BARBA MAP</h2>
+          <p class="section-subtitle">
+            Πραγματικές εικόνες του βυθού – όπως τον βλέπεις στην οθόνη.
+          </p>
+
+          <div class="gallery-grid">
+            <div class="shot">
+              <img src="images/relief1.jpg" alt="Ανάγλυφο βυθού – δείγμα 1">
+              <div class="shot-caption">
+                Αναλυτικό ανάγλυφο βυθού – καθαρά ορατά σπασίματα και κατώφλια.
+              </div>
+            </div>
+
+            <div class="shot">
+              <img src="images/relief2.jpg" alt="Ανάγλυφο βυθού – δείγμα 2">
+              <div class="shot-caption">
+                Πραγματικές δομές βυθού, επιβεβαιωμένες σε εξόδους για ψάρεμα.
+              </div>
+            </div>
+
+            <div class="shot">
+              <img src="images/sdcard.jpg" alt="Επίσημο μέσο BARBA MAP">
+              <div class="shot-caption">
+                Μόνο αυτό το μέσο εγγυάται σωστή και απροβλημάτιστη λειτουργία του χάρτη.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Video EL -->
+      <section id="video-el">
+        <div class="container">
+          <h2 class="section-title">Βίντεο – ο χάρτης σε πραγματική χρήση</h2>
+          <p class="section-subtitle">
+            Σύντομα βίντεο που δείχνουν πώς φαίνεται ο BARBA MAP στη θάλασσα.
+          </p>
+
+          <div class="video-grid">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/X0TroAmjgoo"
+                      title="Barba Map – video 1"
+                      allowfullscreen></iframe>
+            </div>
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/A75YnVMCca0"
+                      title="Barba Map – video 2"
+                      allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact EL -->
+      <section id="contact-el">
+        <div class="container">
+          <h2 class="section-title">Επικοινωνία & παραγγελίες</h2>
+          <p class="section-subtitle">
+            Γράψε ποια συσκευή χρησιμοποιείς και σε ποια περιοχή ψαρεύεις.
+          </p>
+          <div class="contact-card">
+            <div class="contact-row">
+              📧 Email: <strong>info@barba-map.com</strong>
+            </div>
+            <div class="contact-row">
+              🌍 Website: <a href="https://barba-map.com" target="_blank" rel="noopener">barba-map.com</a>
+            </div>
+            <div class="contact-row" style="margin-top:0.4rem;">
+              Παρακαλώ αναφέρετε:
+            </div>
+            <ul class="price-list">
+              <li>• Μάρκα και μοντέλο συσκευής</li>
+              <li>• Περιοχή (Μαύρη Θάλασσα / συγκεκριμένο τμήμα / Μεσόγειος)</li>
+              <li>• Αν πρόκειται για Garmin (για λεπτομέρειες αποστολής)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div>© <span class="year-span" id="year-el"></span> BARBA MAP</div>
+        <div>Κάθε χάρτης φτιάχνεται για μία συγκεκριμένη συσκευή. Ένας χάρτης = μία μονάδα.</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- IT PAGE (Italian) -->
+  <div class="page lang-block hidden" id="page-it">
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <div class="logo-wrap">
+            <div class="logo-circle">B</div>
+            <div>
+              <div class="logo-text-main">BARBA MAP</div>
+              <div class="logo-text-sub">La mappa del pescatore</div>
+            </div>
+          </div>
+          <div class="nav-links">
+            <a data-section="coverage">Copertura</a>
+            <a data-section="devices">Dispositivi</a>
+            <a data-section="gallery">Screenshot</a>
+            <a data-section="video">Video</a>
+            <a data-section="contact">Contatto</a>
+            <div class="lang-switch">
+              <button class="lang-btn" data-lang-target="bg">BG</button>
+              <button class="lang-btn" data-lang-target="en">EN</button>
+              <button class="lang-btn" data-lang-target="el">EL</button>
+              <button class="lang-btn active" data-lang-target="it">IT</button>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero IT -->
+      <section class="hero" id="hero-it">
+        <div class="container">
+          <div class="hero-grid">
+            <div>
+              <div class="hero-badge">
+                <span>NOVITÀ</span> Carta nautica con rilievo del fondo
+              </div>
+              <h1 class="hero-title">
+                La mappa di <span>BARBA</span><br />per il Mar Nero &amp; Mediterraneo
+              </h1>
+              <p class="hero-subtitle">
+                Rilievo realistico del fondale, testato in vere uscite di pesca.
+                Una carta fatta da un pescatore per i pescatori – per vedere dove il fondo cambia davvero e tiene il pesce.
+              </p>
+              <div class="hero-highlight">
+                ⚓ Ogni carta viene creata individualmente per un dispositivo specifico.
+              </div>
+              <div class="hero-cta">
+                <a class="btn-primary" data-section="contact">
+                  Ordina la carta
+                </a>
+                <a class="btn-ghost" data-section="video">
+                  👉 Guardala in azione
+                </a>
+              </div>
+              <p class="hero-note">
+                Per <strong>Garmin</strong> la carta viene scritta direttamente sull’unità.
+                Questo garantisce funzionamento corretto e compatibilità.
+              </p>
+            </div>
+
+            <div>
+              <div class="hero-card">
+                <div class="hero-card-tag">🎣 Per pescatori e skipper seri</div>
+                <div class="hero-card-title">Cosa offre BARBA MAP</div>
+                <p class="hero-card-text">
+                  Focus su strutture reali del fondale e dettagli utili per la pesca – non una decorazione turistica.
+                </p>
+                <ul class="hero-card-list">
+                  <li>• Rilievo dettagliato del fondo nelle zone di pesca attive</li>
+                  <li>• Ottimizzata per Lowrance / Simrad / B&amp;G e Garmin</li>
+                  <li>• Conoscenza locale di chi pesca veramente lì</li>
+                </ul>
+
+                <div class="hero-card-footer">
+                  <div style="margin-bottom: 0.4rem;">Prezzi (per dispositivo):</div>
+                  <ul class="price-list">
+                    <li>• Bulgaria – <span class="price-accent">100 EUR</span></li>
+                    <li>• Europa – <span class="price-accent">115 EUR</span> (spedizione inclusa)</li>
+                  </ul>
+                  <div style="margin-top: 0.5rem;">
+                    <span class="pill">Carta personalizzata</span>
+                    <span class="pill">Supporto verificato</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>          
+        </div>
+      </section>
+
+      <!-- Coverage IT -->
+      <section id="coverage-it">
+        <div class="container">
+          <h2 class="section-title">Copertura</h2>
+          <p class="section-subtitle">
+            Focus principale su zone reali di pesca e di uscite in mare.
+          </p>
+          <div class="grid-2">
+            <div>
+              <div class="card">
+                <h3>Mar Nero</h3>
+                <p>
+                  Rilievo dettagliato del fondale lungo la costa bulgara, con enfasi su rotte e spot di pesca che funzionano davvero.
+                </p>
+                <ul class="price-list">
+                  <li>• Baie, scalini, cambi di profondità</li>
+                  <li>• Zone con strutture interessanti per i predatori</li>
+                  <li>• Forme del fondale verificate in uscite di pesca reali</li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <div class="card">
+                <h3>Mediterraneo</h3>
+                <p>
+                  Espansione graduale della copertura in varie aree del Mediterraneo, in base all’interesse e alle richieste.
+                </p>
+                <p style="margin-top:0.4rem;">
+                  Se peschi in una zona specifica, scrivimi nella sezione contatti per verificare cosa è possibile fare.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Devices IT -->
+      <section id="devices-it">
+        <div class="container">
+          <h2 class="section-title">Dispositivi supportati</h2>
+          <p class="section-subtitle">
+            Ogni carta viene realizzata individualmente per una sola unità. Una carta = un dispositivo.
+          </p>
+
+          <div class="grid-2">
+            <div>
+              <div class="card">
+                <h3>Lowrance / Simrad / B&amp;G</h3>
+                <p>
+                  Piena compatibilità con le principali unità usate dai pescatori in mare.
+                </p>
+                <div class="devices-grid">
+                  <div>
+                    <span class="pill-soft">Lowrance</span><br/>
+                    Serie HDS, Elite, Hook (su richiesta)
+                  </div>
+                  <div>
+                    <span class="pill-soft">Simrad</span><br/>
+                    NSS / NSE e altre (a seconda del modello)
+                  </div>
+                  <div>
+                    <span class="pill-soft">B&amp;G</span><br/>
+                    Zeus e altre unità di navigazione
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="card">
+                <h3>Garmin – caso speciale</h3>
+                <p>
+                  Per Garmin la carta viene scritta direttamente sull’unità.
+                  Questo garantisce funzionamento stabile e senza problemi.
+                </p>
+                <p class="warn">
+                  Per creare una carta per <strong>Garmin</strong> è necessario spedire l’unità.
+                  In questo modo si evitano problemi di compatibilità e mappe bloccate.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery IT -->
+      <section id="gallery-it">
+        <div class="container">
+          <h2 class="section-title">Screenshot della BARBA MAP</h2>
+          <p class="section-subtitle">
+            Viste reali del fondale – esattamente come le vedi sullo schermo.
+          </p>
+
+          <div class="gallery-grid">
+            <div class="shot">
+              <img src="images/relief1.jpg" alt="Rilievo del fondale – esempio 1">
+              <div class="shot-caption">
+                Rilievo dettagliato – rotture e scalini chiaramente visibili.
+              </div>
+            </div>
+
+            <div class="shot">
+              <img src="images/relief2.jpg" alt="Rilievo del fondale – esempio 2">
+              <div class="shot-caption">
+                Strutture reali del fondale, verificate durante uscite di pesca.
+              </div>
+            </div>
+
+            <div class="shot">
+              <img src="images/sdcard.jpg" alt="Supporto ufficiale BARBA MAP">
+              <div class="shot-caption">
+                Solo questo supporto garantisce il funzionamento corretto e senza problemi della carta.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Video IT -->
+      <section id="video-it">
+        <div class="container">
+          <h2 class="section-title">Video – la carta in azione</h2>
+          <p class="section-subtitle">
+            Brevi clip che mostrano come appare BARBA MAP in mare.
+          </p>
+
+          <div class="video-grid">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/X0TroAmjgoo"
+                      title="Barba Map – video 1"
+                      allowfullscreen></iframe>
+            </div>
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/A75YnVMCca0"
+                      title="Barba Map – video 2"
+                      allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact IT -->
+      <section id="contact-it">
+        <div class="container">
+          <h2 class="section-title">Contatto & ordini</h2>
+          <p class="section-subtitle">
+            Scrivimi che unità usi e in quale zona peschi.
+          </p>
+          <div class="contact-card">
+            <div class="contact-row">
+              📧 Email: <strong>info@barba-map.com</strong>
+            </div>
+            <div class="contact-row">
+              🌍 Sito: <a href="https://barba-map.com" target="_blank" rel="noopener">barba-map.com</a>
+            </div>
+            <div class="contact-row" style="margin-top:0.4rem;">
+              Nella richiesta, indica:
+            </div>
+            <ul class="price-list">
+              <li>• Marca e modello dell’unità</li>
+              <li>• Zona (Mar Nero / tratto specifico / Mediterraneo)</li>
+              <li>• Se si tratta di una unità Garmin (per i dettagli di spedizione)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div>© <span class="year-span" id="year-it"></span> BARBA MAP</div>
+        <div>Ogni carta è creata per un solo dispositivo. Una carta = un’unità.</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // текуща година за всички езици
+    const year = new Date().getFullYear();
+    document.querySelectorAll('.year-span').forEach(span => {
+      span.textContent = year;
+    });
+
+    const pages = {
+      bg: document.getElementById('page-bg'),
+      en: document.getElementById('page-en'),
+      el: document.getElementById('page-el'),
+      it: document.getElementById('page-it')
+    };
+
+    const allLangButtons = document.querySelectorAll('.lang-btn');
+    let currentLang = 'bg';
+
+    function setLanguage(lang) {
+      if (!pages[lang]) return;
+      currentLang = lang;
+
+      // показваме само съответната "page"
+      Object.keys(pages).forEach(key => {
+        if (key === lang) {
+          pages[key].classList.remove('hidden');
+        } else {
+          pages[key].classList.add('hidden');
+        }
+      });
+
+      // активен бутон
+      allLangButtons.forEach(btn => {
+        if (btn.dataset.langTarget === lang) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      // html lang атрибут
+      document.documentElement.lang = lang;
+
+      // запомняме избора
+      try {
+        localStorage.setItem('barba-map-lang', lang);
+      } catch (e) {}
+    }
+
+    // обработка на езиковите бутони
+    allLangButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.langTarget;
+        setLanguage(target);
+      });
+    });
+
+    // навигация по секциите – според текущия език
+    function scrollToSection(sectionKey) {
+      const id = sectionKey + '-' + currentLang;
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    document.querySelectorAll('a[data-section], .btn-primary[data-section], .btn-ghost[data-section]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const key = link.dataset.section;
+        if (key) scrollToSection(key);
+      });
+    });
+
+    // зареждаме последно избрания език
+    (function initLanguage() {
+      let saved = null;
+      try {
+        saved = localStorage.getItem('barba-map-lang');
+      } catch (e) {}
+      if (saved && pages[saved]) {
+        setLanguage(saved);
+      } else {
+        setLanguage('bg');
+      }
+    })();
+  </script>
 </body>
 </html>
