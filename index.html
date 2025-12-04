@@ -1,117 +1,211 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Картата на Барбата – Навигационна карта</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="canonical" href="https://barba-map.com/">
+  <meta charset="UTF-8" />
+  <title>BARBA MAP – Навигационна карта за Черно и Средиземно море</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="canonical" href="https://barba-map.com/" />
+  <link rel="stylesheet" href="styles.css" />
 
-    <!-- Product Schema (оправено за Google) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "BARBA MAP - Морска навигационна карта",
-      "description": "Морска навигационна карта с дънен релеф за Черно и Средиземно море.",
-      "brand": {
-        "@type": "Brand",
-        "name": "BARBA"
+  <!-- Product schema за Google с двете цени -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "BARBA MAP - Морска навигационна карта",
+    "description": "Морска навигационна карта с дънен релеф за Черно и Средиземно море.",
+    "brand": {
+      "@type": "Brand",
+      "name": "BARBA"
+    },
+    "url": "https://barba-map.com/",
+    "image": [
+      "https://barba-map.com/relief.jpg",
+      "https://barba-map.com/garmin.jpg",
+      "https://barba-map.com/nositel.jpg"
+    ],
+    "offers": [
+      {
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "price": "100",
+        "availability": "https://schema.org/InStock",
+        "areaServed": "BG",
+        "description": "Цена за България. Доставката се заплаща от клиента."
       },
-      "url": "https://barba-map.com/",
-      "image": [
-        "https://barba-map.com/relief.jpg",
-        "https://barba-map.com/garmin.jpg",
-        "https://barba-map.com/nositel.jpg"
-      ],
-      "offers": [
-        {
-          "@type": "Offer",
-          "priceCurrency": "EUR",
-          "price": "100",
-          "availability": "https://schema.org/InStock",
-          "areaServed": "BG",
-          "description": "Цена за България. Доставката се заплаща от клиента."
-        },
-        {
-          "@type": "Offer",
-          "priceCurrency": "EUR",
-          "price": "115",
-          "availability": "https://schema.org/InStock",
-          "areaServed": "EU",
-          "description": "Цена за Европа. Включена доставка."
-        }
-      ]
-    }
-    </script>
-
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-
-            /* НОВИЯТ ФОН със светло сините изобати */
-            background-image: url("https://barba-map.com/isobaths.png");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-color: #5bbcf5;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
-            background: rgba(0,0,0,0.55);
-            color: #fff;
-            border-radius: 10px;
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-
-        h1, h2 {
-            text-align: center;
-        }
-
-        img {
-            width: 100%;
-            border-radius: 10px;
-            margin-top: 15px;
-        }
-
-        a {
-            color: #ffee55;
-        }
-    </style>
+      {
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "price": "115",
+        "availability": "https://schema.org/InStock",
+        "areaServed": "EU",
+        "description": "Цена за Европа. Включена доставка до клиента."
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
-
-    <div class="container">
-        <h1>Картата на Барбата</h1>
-        <p style="text-align:center;">Навигационна карта с дънен релеф за Черно и Средиземно море</p>
-
-        <h2>Покритие</h2>
-        <p>Картата обхваща Черно море и Средиземно море.</p>
-        <img src="relief.jpg" alt="relief">
-
-        <h2>Поддържани устройства</h2>
-        <p>Lowrance • Simrad • B&G • Garmin (само чрез изпращане на уред)</p>
-        <img src="garmin.jpg" alt="garmin">
-
-        <h2>Носител</h2>
-        <p>Картата работи коректно само на този носител:</p>
-        <img src="nositel.jpg" alt="nositel">
-
-        <h2>Цена</h2>
-        <p><b>100 EUR</b> – България (доставката се плаща от клиента)</p>
-        <p><b>115 EUR</b> – Европа (доставката е включена)</p>
-
-        <h2>Видео</h2>
-        <p><a href="https://youtu.be/X0TroAmjgoo" target="_blank">Видео 1</a></p>
-        <p><a href="https://youtu.be/A75YnVMCca0" target="_blank">Видео 2</a></p>
+  <header class="topbar">
+    <div class="logo-wrap">
+      <div class="logo-circle">B</div>
+      <div class="logo-text">
+        <div class="logo-main">BARBA MAP</div>
+        <div class="logo-sub">КАРТАТА НА РИБАРЯ</div>
+      </div>
     </div>
 
+    <nav class="nav-links">
+      <a href="#hero">Начало</a>
+      <a href="#coverage">Покритие</a>
+      <a href="#devices">Устройства</a>
+      <a href="#screens">Снимки</a>
+      <a href="#video">Видео</a>
+      <a href="#contact">Контакт</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="hero-main">
+        <div class="hero-tag">НЕО • Навигационен хидрографски релеф</div>
+        <h1>Картата на BARBA за Черно море и Средиземно море</h1>
+        <p class="hero-sub">
+          Реален релеф на дъното, тестван в истински условия за риболов.
+          Виждаш къде реално пада бомбата, а не туристическа картинка.
+        </p>
+
+        <ul class="hero-list">
+          <li>Аналитичен дънен релеф с контури и детайлни падове.</li>
+          <li>Оптимизирана за Lowrance, Simrad, B&amp;G и Garmin.</li>
+          <li>Покрива реални работни места за риболов, не само бреговата линия.</li>
+        </ul>
+
+        <div class="hero-cta">
+          <a href="#contact" class="btn-primary">Поръчай карта</a>
+          <span class="hero-note">Всяка карта се прави индивидуално за конкретен уред.</span>
+        </div>
+      </div>
+
+      <aside class="hero-side">
+        <h2>Какво предлага BARBA MAP</h2>
+        <ul>
+          <li>Подробен релеф в реални рибарски зони.</li>
+          <li>Ясно видими падове, каналчета и прагове.</li>
+          <li>Опит от години риболов по тези места.</li>
+        </ul>
+        <div class="hero-prices">
+          <div>🇧🇬 България: <strong>100 EUR</strong> (доставка за сметка на клиента)</div>
+          <div>🇪🇺 Европа: <strong>115 EUR</strong> (доставката е включена)</div>
+        </div>
+        <p class="hero-small">
+          За Garmin уредът се изпраща до Барба, за да се гарантира коректно записване и безпроблемна работа.
+        </p>
+      </aside>
+    </section>
+
+    <!-- ПОКРИТИЕ -->
+    <section id="coverage" class="section">
+      <h2>Покритие</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Черно море</h3>
+          <p>
+            Подробен релеф по българското крайбрежие, с акцент върху реални рибарски точки,
+            прагове и падове, където се задържа риба.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Средиземно море</h3>
+          <p>
+            Постепенно разширяване на покритието за ключови райони.
+            Фокус върху места, които се ползват масово от риболовци.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- УСТРОЙСТВА -->
+    <section id="devices" class="section">
+      <h2>Поддържани устройства</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Lowrance / Simrad / B&amp;G</h3>
+          <p>Повечето модерни модели, които работят с външни карти (microSD).</p>
+        </div>
+        <div class="card">
+          <h3>Garmin</h3>
+          <p>
+            Работи, но картата се записва директно на уреда. Необходим е физически достъп до устройството
+            за коректно вграждане.
+          </p>
+        </div>
+      </div>
+      <div class="section-note">
+        Ако се чудиш дали твоят уред става – пиши на Барба и ще го проверим.
+      </div>
+    </section>
+
+    <!-- СНИМКИ -->
+    <section id="screens" class="section">
+      <h2>Снимки от реална работа</h2>
+      <div class="images-grid">
+        <figure>
+          <img src="relief.jpg" alt="Дънен релеф – екран от уред" />
+          <figcaption>Реален релеф от уред с BARBA MAP.</figcaption>
+        </figure>
+        <figure>
+          <img src="garmin.jpg" alt="Устройства Garmin и други" />
+          <figcaption>Примери за поддържани устройства.</figcaption>
+        </figure>
+        <figure>
+          <img src="nositel.jpg" alt="Официалният носител на картата" />
+          <figcaption>Само този носител гарантира безпроблемна работа.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ВИДЕО -->
+    <section id="video" class="section">
+      <h2>Видео</h2>
+      <p>Картата в действие – реални кадри от работа на вода:</p>
+      <div class="video-grid">
+        <iframe
+          src="https://www.youtube.com/embed/X0TroAmjgoo"
+          title="BARBA MAP видео 1"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+        <iframe
+          src="https://www.youtube.com/embed/A75YnVMCca0"
+          title="BARBA MAP видео 2"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
+
+    <!-- КОНТАКТ -->
+    <section id="contact" class="section">
+      <h2>Контакт с Барбата</h2>
+      <p>
+        За поръчка, въпроси за покритие или дали твоят уред става за картата, пиши на:
+      </p>
+      <p class="contact-mail">
+        <a href="mailto:barba.map@abv.bg">barba.map@abv.bg</a>
+      </p>
+      <p>Опиши модела на уреда, за който искаш карта, и държавата, от която поръчваш.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © <span id="year"></span> BARBA MAP – Картата на Барбата
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
