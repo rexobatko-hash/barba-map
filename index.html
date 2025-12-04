@@ -1,126 +1,117 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BARBA MAP – Морска навигационна карта</title>
-<link rel="canonical" href="https://barba-map.com/">
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Картата на Барбата – Навигационна карта</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="canonical" href="https://barba-map.com/">
 
-<!-- Product Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "BARBA MAP - Морска навигационна карта",
-  "description": "Морска навигационна карта с дънен релеф за Черно и Средиземно море.",
-  "brand": {
-    "@type": "Brand",
-    "name": "BARBA"
-  },
-  "url": "https://barba-map.com/",
-  "image": [
-    "https://barba-map.com/relief.jpg",
-    "https://barba-map.com/garmin.jpg",
-    "https://barba-map.com/nositel.jpg"
-  ],
-  "offers": [
+    <!-- Product Schema (оправено за Google) -->
+    <script type="application/ld+json">
     {
-      "@type": "Offer",
-      "priceCurrency": "EUR",
-      "price": "100",
-      "availability": "https://schema.org/InStock",
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "BARBA MAP - Морска навигационна карта",
+      "description": "Морска навигационна карта с дънен релеф за Черно и Средиземно море.",
+      "brand": {
+        "@type": "Brand",
+        "name": "BARBA"
+      },
       "url": "https://barba-map.com/",
-      "areaServed": "BG",
-      "description": "Цена за България. Доставката се заплаща от клиента."
-    },
-    {
-      "@type": "Offer",
-      "priceCurrency": "EUR",
-      "price": "115",
-      "availability": "https://schema.org/InStock",
-      "url": "https://barba-map.com/",
-      "areaServed": "EU",
-      "description": "Цена за Европа. Включена доставка до клиента."
+      "image": [
+        "https://barba-map.com/relief.jpg",
+        "https://barba-map.com/garmin.jpg",
+        "https://barba-map.com/nositel.jpg"
+      ],
+      "offers": [
+        {
+          "@type": "Offer",
+          "priceCurrency": "EUR",
+          "price": "100",
+          "availability": "https://schema.org/InStock",
+          "areaServed": "BG",
+          "description": "Цена за България. Доставката се заплаща от клиента."
+        },
+        {
+          "@type": "Offer",
+          "priceCurrency": "EUR",
+          "price": "115",
+          "availability": "https://schema.org/InStock",
+          "areaServed": "EU",
+          "description": "Цена за Европа. Включена доставка."
+        }
+      ]
     }
-  ]
-}
-</script>
+    </script>
 
-<style>
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-image: url("https://barba-map.com/isobaths.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-color: #5bbcf5;
-    color: #ffffff;
-}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
 
-.header {
-    text-align: center;
-    padding: 40px 20px;
-    font-size: 34px;
-    font-weight: bold;
-    background: rgba(0,0,0,0.4);
-}
+            /* НОВИЯТ ФОН със светло сините изобати */
+            background-image: url("https://barba-map.com/isobaths.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #5bbcf5;
+        }
 
-.section {
-    max-width: 850px;
-    margin: 40px auto;
-    background: rgba(0,0,0,0.55);
-    padding: 25px 30px;
-    border-radius: 12px;
-}
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(0,0,0,0.55);
+            color: #fff;
+            border-radius: 10px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
 
-.section h2 {
-    margin-top: 0;
-}
+        h1, h2 {
+            text-align: center;
+        }
 
-img {
-    width: 100%;
-    border-radius: 10px;
-    margin-top: 15px;
-}
-</style>
+        img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        a {
+            color: #ffee55;
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="header">BARBA MAP – Морска навигационна карта</div>
+    <div class="container">
+        <h1>Картата на Барбата</h1>
+        <p style="text-align:center;">Навигационна карта с дънен релеф за Черно и Средиземно море</p>
 
-<div class="section">
-    <h2>Покритие</h2>
-    <p>Черно море + Средиземно море. Поддържат се всички модели Lowrance, Simrad, B&G, Garmin (само на изпратен уред).</p>
-    <img src="relief.jpg" alt="relief">
-</div>
+        <h2>Покритие</h2>
+        <p>Картата обхваща Черно море и Средиземно море.</p>
+        <img src="relief.jpg" alt="relief">
 
-<div class="section">
-    <h2>Носител</h2>
-    <p>Картата работи коректно само на този носител. Гарантирана безпроблемна работа:</p>
-    <img src="nositel.jpg" alt="nositel">
-</div>
+        <h2>Поддържани устройства</h2>
+        <p>Lowrance • Simrad • B&G • Garmin (само чрез изпращане на уред)</p>
+        <img src="garmin.jpg" alt="garmin">
 
-<div class="section">
-    <h2>Поддържани устройства</h2>
-    <p>Lowrance • Simrad • B&G • Garmin (само чрез изпращане на уред)</p>
-    <img src="garmin.jpg" alt="garmin">
-</div>
+        <h2>Носител</h2>
+        <p>Картата работи коректно само на този носител:</p>
+        <img src="nositel.jpg" alt="nositel">
 
-<div class="section">
-    <h2>Цена</h2>
-    <p><b>100 EUR</b> – за България (доставката се плаща от клиента)</p>
-    <p><b>115 EUR</b> – за Европа (доставката е включена в цената)</p>
-</div>
+        <h2>Цена</h2>
+        <p><b>100 EUR</b> – България (доставката се плаща от клиента)</p>
+        <p><b>115 EUR</b> – Европа (доставката е включена)</p>
 
-<div class="section">
-    <h2>Видео</h2>
-    <p><a href="https://youtu.be/X0TroAmjgoo" target="_blank" style="color:#ffee55;">Видео 1</a></p>
-    <p><a href="https://youtu.be/A75YnVMCca0" target="_blank" style="color:#ffee55;">Видео 2</a></p>
-</div>
+        <h2>Видео</h2>
+        <p><a href="https://youtu.be/X0TroAmjgoo" target="_blank">Видео 1</a></p>
+        <p><a href="https://youtu.be/A75YnVMCca0" target="_blank">Видео 2</a></p>
+    </div>
 
 </body>
 </html>
