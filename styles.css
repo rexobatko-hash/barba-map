@@ -1,11 +1,10 @@
 body {
-    background-image: url("https://barba-map.com/isobaths.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-color: #5bbcf5; /* резервен цвят, ако картинката не се зареди */
-    margin: 0;
-    padding: 0;
+background-image: url("https://barba-map.com/isobaths.png");
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-color: #5bbcf5;
+
 }
 *,
 *::before,
