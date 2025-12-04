@@ -6,25 +6,55 @@
   <title>Морска навигационна карта с дънен релеф · BARBA MAP · Черно и Средиземно море</title>
   <meta name="description" content="Морска навигационна карта с детайлен дънен релеф за Черно и Средиземно море. Картата на Барбата (BARBA MAP) е специално създадена за риболовци – реални структури, чупки, прагове и релеф, проверени на вода.">
 
-  <!-- hreflang за многоезично SEO -->
+  <!-- hreflang -->
   <link rel="alternate" href="https://barba-map.com/" hreflang="bg" />
   <link rel="alternate" href="https://barba-map.com/" hreflang="en" />
   <link rel="alternate" href="https://barba-map.com/" hreflang="el" />
   <link rel="alternate" href="https://barba-map.com/" hreflang="it" />
   <link rel="alternate" href="https://barba-map.com/" hreflang="x-default" />
 
+  <!-- Product + Offers (prices for Google) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": "BARBA MAP - Морска навигационна карта",
-    "description": "Морска навигационна карта с дънен релеф за Черно и Средиземно море.",
-    "brand": "BARBA",
+    "name": "BARBA MAP - Морска навигационна карта с дънен релеф",
+    "description": "Морска навигационна карта с дънен релеф за Черно и Средиземно море, изработена индивидуално за всеки уред.",
+    "brand": {
+      "@type": "Brand",
+      "name": "BARBA"
+    },
     "url": "https://barba-map.com/",
     "image": [
       "https://barba-map.com/relief.jpg",
       "https://barba-map.com/garmin.jpg",
       "https://barba-map.com/nositel.jpg"
+    ],
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "BARBA MAP за България",
+        "price": "100.00",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://barba-map.com/",
+        "eligibleRegion": {
+          "@type": "Country",
+          "name": "Bulgaria"
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "BARBA MAP за Европа",
+        "price": "115.00",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://barba-map.com/",
+        "eligibleRegion": {
+          "@type": "Continent",
+          "name": "Europe"
+        }
+      }
     ]
   }
   </script>
@@ -137,8 +167,8 @@
       border-radius: 999px;
       border: 1px solid transparent;
       color: #e5edff;
-      text-decoration: none;
       cursor: pointer;
+      text-decoration: none;
     }
 
     .nav-links a[data-section]:hover {
@@ -836,7 +866,7 @@
             <div class="logo-circle">B</div>
             <div>
               <div class="logo-text-main">BARBA MAP</div>
-              <div class="logo-text-sub">The Fisherman's Map</div>
+              <div classname="logo-text-sub">The Fisherman's Map</div>
             </div>
           </div>
           <div class="nav-links">
