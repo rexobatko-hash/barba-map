@@ -13,7 +13,7 @@
   <link rel="alternate" href="https://barba-map.com/" hreflang="it" />
   <link rel="alternate" href="https://barba-map.com/" hreflang="x-default" />
 
-  <!-- Product + Offers (prices for Google) + rating + review -->
+  <!-- Product + Offers (за Google, с двете цени и всички изисквани полета) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,9 +38,22 @@
         "priceCurrency": "EUR",
         "availability": "https://schema.org/InStock",
         "url": "https://barba-map.com/",
-        "eligibleRegion": {
-          "@type": "Country",
-          "name": "Bulgaria"
+        "priceValidUntil": "2099-12-31",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingDestination": {
+            "@type": "Country",
+            "name": "Bulgaria"
+          },
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0",
+            "currency": "EUR"
+          }
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "returnPolicyCategory": "https://schema.org/NonRefundable"
         }
       },
       {
@@ -50,30 +63,23 @@
         "priceCurrency": "EUR",
         "availability": "https://schema.org/InStock",
         "url": "https://barba-map.com/",
-        "eligibleRegion": {
-          "@type": "Continent",
-          "name": "Europe"
+        "priceValidUntil": "2099-12-31",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingDestination": {
+            "@type": "Continent",
+            "name": "Europe"
+          },
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0",
+            "currency": "EUR"
+          }
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "returnPolicyCategory": "https://schema.org/NonRefundable"
         }
-      }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "12"
-    },
-    "review": [
-      {
-        "@type": "Review",
-        "author": {
-          "@type": "Person",
-          "name": "Клиент рибар"
-        },
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5"
-        },
-        "reviewBody": "Картата на Барбата е много подробна, четима и удобна за реален морски риболов."
       }
     ]
   }
@@ -886,7 +892,7 @@
             <div class="logo-circle">B</div>
             <div>
               <div class="logo-text-main">BARBA MAP</div>
-              <div classname="logo-text-sub">The Fisherman's Map</div>
+              <div class="logo-text-sub">The Fisherman's Map</div>
             </div>
           </div>
           <div class="nav-links">
@@ -1327,7 +1333,7 @@
             <div class="shot">
               <img src="relief.jpg" alt="χάρτης ανάγλυφου βυθού στη Μαύρη Θάλασσα">
               <div class="shot-caption">
-                Αναλυτικό ανάγλυφο βυθού με καθαρά ορατά σπασίματα και κατώφλια.
+                Αναλυτικό ανάγλυφο βυθού με καθαρά ορατά σπασίματα и κατώφλια.
               </div>
             </div>
 
@@ -1341,7 +1347,7 @@
             <div class="shot">
               <img src="nositel.jpg" alt="επίσημο μέσο BARBA MAP για θαλάσσιο χάρτη">
               <div class="shot-caption">
-                Μόνο αυτό το μέσο εγγυάται σωστή και απροβλημάτιστη λειτουργία του χάρτη.
+                Μόνο αυτό το μέσο εγγυάται σωστή и απροβλημάτιστη λειτουργία του χάρτη.
               </div>
             </div>
           </div>
@@ -1773,5 +1779,3 @@
   </script>
 </body>
 </html>
-
-
