@@ -1,148 +1,347 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BARBA MAP – Морска навигационна карта</title>
-  <meta name="description" content="BARBA MAP – навигационна карта с дънен релеф за Черно и Средиземно море. Поддръжка: Lowrance, Humminbird, Simrad, Raymarine, Garmin." />
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Картата на Барбата – дънен релеф за Черно и Средиземно море</title>
+
+    <meta name="description" content="Картата на Барбата – навигационна карта с дънен релеф за Черно и Средиземно море. Всяка карта се изработва за конкретен уред за коректна и безпроблемна работа.">
+    <meta name="keywords" content="морска карта, дънен релеф, bathymetry, Черно море, Средиземно море, навигация, риболов, карта на дъното">
+
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-  <header class="topbar">
-    <div class="wrap topbar-inner">
-      <div class="brand">
-        <span class="brand-title">BARBA MAP</span>
-        <span class="brand-sub">Картата на Барбата</span>
-      </div>
-      <nav class="nav">
-        <a href="#features">Функции</a>
-        <a href="#devices">Устройства</a>
-        <a href="#price">Цени</a>
-        <a href="#contact">Контакт</a>
-      </nav>
+<header class="site-header">
+    <div class="container header-content">
+        <div class="logo">
+            <span class="logo-main">КАРТАТА НА БАРБАТА</span>
+            <span class="logo-sub">Една карта – две морета</span>
+        </div>
+
+        <nav class="main-nav">
+            <a href="#home">Начало</a>
+            <a href="#about">Какво е</a>
+            <a href="#coverage">Покритие</a>
+            <a href="#devices">Устройства</a>
+            <a href="#gallery">Снимки</a>
+            <a href="#video">Видео</a>
+            <a href="#contact">Контакт</a>
+        </nav>
     </div>
-  </header>
+</header>
 
-  <main>
+<main>
 
-    <section class="hero">
-      <div class="wrap hero-inner">
+<!-- HERO – първа снимка: дънен релеф -->
+<section id="home" class="hero">
+    <div class="container hero-grid">
         <div class="hero-text">
-          <h1>Морска навигационна карта с дънен релеф</h1>
-          <p>
-            BARBA MAP – детайлен релеф за Черно и Средиземно море, направен за риболов и навигация.
-          </p>
-          <div class="hero-cta">
-            <a class="btn" href="#contact">Поръчай</a>
-            <a class="btn btn-ghost" href="#price">Виж цени</a>
-          </div>
+            <h1>Една карта – дънен релеф за Черно и Средиземно море</h1>
+            <p>
+                „Картата на Барбата“ е интегрирана морска навигационна карта с детайлен дънен релеф
+                на Черно и Средиземно море. Реално тествана от рибар за рибари.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Заяви карта</a>
+                <a href="#devices" class="btn-secondary">Поддържани уреди</a>
+            </div>
+
+            <div class="hero-tags">
+                <span>Черно море</span>
+                <span>Средиземно море</span>
+                <span>Дънен релеф</span>
+                <span>Морски риболов</span>
+            </div>
         </div>
 
         <div class="hero-media">
-          <img src="isobaths.png" alt="BARBA MAP – релеф и изобати" />
+            <img src="relief.jpg"
+                 alt="Дънен релеф на Черно море – Картата на Барбата"
+                 class="hero-shot">
         </div>
-      </div>
-    </section>
+    </div>
+</section>
 
-    <!-- ✅ НОВО: добавена снимка (качената png) -->
-    <section class="overlay-update" aria-label="Ново: Подобрени Overlay опции">
-      <div class="wrap">
-        <h2>НОВО: Подобрени Overlay опции</h2>
-        <p class="muted">
-          По-детайлен релеф, по-ясна ориентация и по-добро разчитане на структури.
+<!-- ABOUT -->
+<section id="about" class="section">
+    <div class="container two-cols">
+
+        <div>
+            <h2>Какво представлява картата</h2>
+            <p>
+                Това е единна навигационна карта, която комбинира дънен релеф, рифове, падове и структури,
+                оптимизирани за морски риболов в Черно и Средиземно море.
+            </p>
+            <p>
+                Картата показва реални особености на дъното – скатове, прагчета, плато и „чупки“, които
+                стандартните карти често пропускат.
+            </p>
+        </div>
+
+        <div>
+            <h3>Предимства</h3>
+            <ul class="icon-list">
+                <li>⚓ Детайлен морски релеф</li>
+                <li>🐟 Основни риболовни структури за джигинг и тролинг</li>
+                <li>🧭 Работи на водещи картографи (Lowrance, Simrad, Raymarine, Humminbird, Garmin)</li>
+                <li>🌙 Ясна картина и при нощен риболов</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<!-- COVERAGE -->
+<section id="coverage" class="section section-alt">
+    <div class="container">
+
+        <h2>Покритие</h2>
+        <p class="section-intro">
+            Една карта, която покрива едновременно <strong>Черно</strong> и <strong>Средиземно море</strong>.
         </p>
 
-        <!-- ВАЖНО: тук е твоят файл, както е качен -->
-        <img
-          class="overlay-img"
-          src="Картата на Барбата...png"
-          alt="НОВО: Подобрени Overlay опции – още по-детайлен релеф"
-          loading="lazy"
-        />
-      </div>
-    </section>
+        <div class="cards">
 
-    <section id="features" class="section">
-      <div class="wrap">
-        <h2>Какво получаваш</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>Дънен релеф</h3>
-            <p>Ясни структури, падове и ръбове за по-добър риболов и по-точна навигация.</p>
-          </div>
-          <div class="card">
-            <h3>Покритие</h3>
-            <p>Черно море и Средиземно море – подготвено за реална работа на вода.</p>
-          </div>
-          <div class="card">
-            <h3>Лесно ползване</h3>
-            <p>Чиста визуализация, удобна за бърза ориентация при всякакви условия.</p>
-          </div>
+            <article class="card">
+                <h3>Черно море</h3>
+                <ul class="plain-list">
+                    <li>Подробен релеф по българското крайбрежие</li>
+                    <li>Рифове, падове, прагове и структури</li>
+                    <li>Оптимизирано за морски риболов</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h3>Средиземно море</h3>
+                <ul class="plain-list">
+                    <li>Ключови риболовни зони</li>
+                    <li>Дълбочинен релеф</li>
+                    <li>Практична ориентация за лодка</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h3>Единна карта</h3>
+                <ul class="plain-list">
+                    <li>Черно + Средиземно море</li>
+                    <li>Един файл, една карта</li>
+                    <li>Една цена</li>
+                </ul>
+            </article>
+
         </div>
-      </div>
-    </section>
 
-    <section id="devices" class="section section-alt">
-      <div class="wrap">
-        <h2>Поддържани устройства</h2>
-        <div class="devices">
-          <div class="device"><img src="garmin.jpg" alt="Garmin" /><span>Garmin</span></div>
-          <div class="device"><img src="nositel.jpg" alt="Lowrance / Simrad / Raymarine / Humminbird" /><span>Lowrance / Simrad / Raymarine / Humminbird</span></div>
-        </div>
-        <p class="muted">Ако имаш друг модел – пиши и ще потвърдя съвместимост.</p>
-      </div>
-    </section>
-
-    <section id="price" class="section">
-      <div class="wrap">
-        <h2>Цени</h2>
-        <div class="price-grid">
-          <div class="price-card">
-            <h3>България</h3>
-            <div class="price">100 EUR</div>
-            <ul>
-              <li>Пълна карта (BG)</li>
-              <li>Инструкции за инсталация</li>
-              <li>Поддръжка при нужда</li>
-            </ul>
-          </div>
-          <div class="price-card featured">
-            <h3>Европа</h3>
-            <div class="price">115 EUR</div>
-            <ul>
-              <li>Пълна карта (EU)</li>
-              <li>Инструкции за инсталация</li>
-              <li>Поддръжка при нужда</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section section-alt">
-      <div class="wrap">
-        <h2>Контакт</h2>
-        <div class="contact">
-          <div class="contact-card">
-            <h3>Тел / Viber / WhatsApp</h3>
-            <p><a href="tel:+359895606234">+359 895 606 234</a></p>
-          </div>
-          <div class="contact-card">
-            <h3>Имейл</h3>
-            <p><a href="mailto:proletsin@mail.bg">proletsin@mail.bg</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <div class="wrap">
-      <small>© BARBA MAP – Картата на Барбата</small>
     </div>
-  </footer>
+</section>
+
+<!-- DEVICES -->
+<section id="devices" class="section">
+    <div class="container">
+        <h2>Съвместими картографи и устройства</h2>
+
+        <p>
+            Всяка карта се изработва за <strong>конкретен уред</strong>, за да работи максимално стабилно и безопасно.
+        </p>
+        <p>
+            <strong>За Garmin</strong> уредът трябва да ми бъде изпратен, за да се подготви картата и да се тества на място.
+        </p>
+
+        <p>Картите работят на следните картографи:</p>
+
+        <h3>1. Lowrance</h3>
+        <ul class="plain-list">
+            <li>HDS PRO series; HDS LIVE series; HDS Carbon series; Elite Ti2 series; Elite FS series</li>
+            <li>HDS Gen3 series; Elite Ti series</li>
+            <li>HDS Gen2 Touch series</li>
+            <li>HDS Gen2 series</li>
+            <li>HDS Gen1 series</li>
+            <li>Elite 7 HDI; Elite 7/9 CHIRP</li>
+        </ul>
+
+        <h3>2. Humminbird</h3>
+        <ul class="plain-list">
+            <li>1199CI HD SI, 1199CI HD SI KVD, 1198c SI, 1197, 1159CI HD, 1159CI HD XD, 1159CI HD DI, 1158c,
+                1158c DI, 1157, 1155</li>
+            <li>999CI HD SI, 999CI HD SI KVD, 998c HD SI, 998c SI, 959CI HD, 959CI HD XD, 959CI HD DI,
+                958c HD, 958c HD DI, 958, 957, 955, 947, 937, 917</li>
+            <li>899CI HD SI, 899CI HD SI NAV, 899CXI HD SI, 898c HD SI, 859CI HD, 859CI HD XD, 859CI HD DI,
+                858c HD, 858c HD DI, 858</li>
+            <li>HELIX 10 SI GPS, DI GPS, SI GPS KVD, SONAR GPS</li>
+            <li>HELIX 7 SI GPS, SI GPS KVD, DI GPS, SONAR GPS, GPS, X GPS</li>
+            <li>HELIX 5 DI GPS, XD GPS, SONAR GPS, GPS, SI GPS, SI GPS KVD</li>
+            <li>987, 798ci HD SI, 798, 797, 788ci HD, 788ci HD DI, 788ci HD Combo CHO, 787, 767, 757, 755, 737</li>
+            <li>698CI HD SI, 698CI HD SI KVD, 688CI HD, 688CI HD DI, 688CI HD XD, 688CI HD DI KVD NAV</li>
+            <li>598ci HD SI, 597ci HD, 597ci HD DI, 597, 587ci HD, 587, 595c</li>
+        </ul>
+
+        <h3>3. Simrad</h3>
+        <ul class="plain-list">
+            <li>NSS evo3S; NSO evo3S; NSS evo3; NSO evo3; NSO evo2</li>
+            <li>GO 5/7/9/12 XSE; GO XSR; GO 7 XSE; GO</li>
+            <li>NSS evo2; NSO; NSE; NSS</li>
+            <li>Cruise</li>
+        </ul>
+
+        <h3>4. Raymarine</h3>
+        <ul class="plain-list">
+            <li>Axiom+ series; Axiom XL series; Axiom Pro series; Axiom 2 Pro series; Axiom series</li>
+            <li>e-series; c-series; a-series</li>
+            <li>gS-series; eS-series</li>
+            <li>Element S series; Element HV series</li>
+            <li>Dragonfly Pro; Dragonfly</li>
+        </ul>
+
+        <h3>5. Garmin</h3>
+        <ul class="plain-list">
+            <li>ECHOMAP UHD2 (5/7)</li>
+            <li>ECHOMAP ULTRA (10/12)</li>
+            <li>ECHOMAP UHD (7/9)</li>
+            <li>ECHOMAP UHD2 (6/7/9)</li>
+        </ul>
+
+        <p>
+            Ако имате друг модел – питайте, ще ви кажа дали става или не. Свържете се с мен за уточняване
+            на подробности и начин на плащане.
+        </p>
+
+        <p>
+            <strong>Цена за България (без доставка):</strong> 100&nbsp;EUR<br>
+            <strong>Цена за Европа (с включена доставка):</strong> 115&nbsp;EUR
+        </p>
+    </div>
+</section>
+
+<!-- GALLERY – трите твои снимки -->
+<section id="gallery" class="section section-alt">
+    <div class="container">
+        <h2>Снимки от реална работа на картата</h2>
+        <p class="section-intro">Няма рендъри и реклами – само истински екран от лодката и реалния носител.</p>
+
+        <div class="gallery-grid">
+
+            <!-- 1. Дънен релеф -->
+            <figure class="gallery-item">
+                <img src="relief.jpg"
+                     alt="Дънен релеф на Черно море – Lowrance / Elite">
+                <figcaption>Дънен релеф – плит и дълбок контур, реална Картата на Барбата.</figcaption>
+            </figure>
+
+            <!-- 2. Гармин Варна -->
+            <figure class="gallery-item">
+                <img src="garmin.jpg"
+                     alt="Варненски залив – Garmin с комбинирана карта">
+                <figcaption>Варна – комбинирана карта и дънен релеф на Garmin.</figcaption>
+            </figure>
+
+            <!-- 3. Носителят -->
+            <figure class="gallery-item">
+                <img src="nositel.jpg"
+                     alt="Оригинален носител на Картата на Барбата">
+                <figcaption>
+                    <strong>Само този носител гарантира коректна и безпроблемна работа на картата!</strong>
+                </figcaption>
+            </figure>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- VIDEO – двете YouTube видеа -->
+<section id="video" class="section">
+    <div class="container">
+        <h2>Видео</h2>
+        <p class="section-intro">
+            Кратки клипове, които показват как изглежда Картата на Барбата в реални условия на вода.
+        </p>
+
+        <div class="video-grid">
+
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/X0TroAmjgoo"
+                        title="Картата на Барбата – видео 1"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/A75YnVMCca0"
+                        title="Картата на Барбата – видео 2"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+    <div class="container two-cols">
+
+        <div>
+            <h2>Контакт</h2>
+            <p>За въпроси, проверка за вашия уред или заявка на карта:</p>
+
+            <div class="contact-buttons">
+                <a href="tel:+359895606234" class="btn-contact">📞 Обади се</a>
+                <a href="viber://chat?number=359895606234" class="btn-contact">📲 Viber</a>
+                <a href="https://wa.me/359895606234" target="_blank" class="btn-contact">💬 WhatsApp</a>
+            </div>
+
+            <ul class="contact-list">
+                <li>📞 Телефон: +359 895 606 234</li>
+                <li>📲 Viber: +359 895 606 234</li>
+                <li>💬 WhatsApp: +359 895 606 234</li>
+                <li>✉ Email: <a href="mailto:proletsin@mail.bg">proletsin@mail.bg</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <form class="contact-form"
+                  onsubmit="alert('Демо форма – за реално изпращане е нужен сървър.'); return false;">
+                <label>
+                    Име
+                    <input type="text" required>
+                </label>
+                <label>
+                    Имейл
+                    <input type="email" required>
+                </label>
+                <label>
+                    Устройство
+                    <input type="text" placeholder="пример: Lowrance HDS Live 9">
+                </label>
+                <label>
+                    Съобщение
+                    <textarea rows="4" required></textarea>
+                </label>
+                <button class="btn-primary">Изпрати</button>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-content">
+        <span>© <span id="year"></span> Картата на Барбата</span>
+        <span class="footer-note">Една карта – две морета</span>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
